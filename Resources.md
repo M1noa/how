@@ -40,7 +40,7 @@
 
 **Video Hosting**
 - [Mycloud/Vidplay](https://vidplay.online/) - 20GB Max | API
-- [Archive](https://archive.org) - Embed video and no compression direct link
+- [Archive](https://archive.org) - No compression | Direct Link | Embed Video Player | Infanant Storage | API | Slow Speeds
 
 **Audio Hosting**
 - [Pillowcase](https://pillowcase.su/) - 500MB Max | Clean UI | Direct link
