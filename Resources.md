@@ -68,4 +68,5 @@
 - Use [GenP](https://minoa.is-a-femboy.lol/s/mfwuwlzohh) for getting adobe software.
 
 For more checkout the [Piracy Megathread](https://rentry.co/megathread) or the [FMHY Wiki](https://fmhy.net/beginners-guide) maybe even [EverythingMoe](https://everythingmoe.com/)!
-*Made by Minoa*
+
+***Made by Minoa***
