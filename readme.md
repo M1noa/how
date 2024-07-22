@@ -1,4 +1,4 @@
-**Legit Sites** (Ranked in Order Top To Bottom!)
+**Legit Stuff frfr**
 
 **Software**
 - [MTPrograms](https://programs.themicrotech.net/) - Windows
