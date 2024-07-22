@@ -56,6 +56,12 @@
 **Live TV**
 - [Buff Sports](https://buffsportshub.stream/) - Sports
 - [Give Me Reddit](https://givemereddit.eu/) - Sports
+- [IPTV](https://github.com/M1noa/multi-m3u/blob/main/IPTV%20Sources.txt)
+
+**ChatGPT Prompts**
+- [Code Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/CodeBypass.md)
+- [AI Detector Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/AntiAI-Bypass)
+- [Universal Tier 5](https://www.reddit.com/r/ChatGPTJailbreak/comments/1e0zbsv/turn_every_chatgpt4o_chat_into_a_persistent_tier/)
 
 **VPNS**
 - [Mullvad](https://mullvad.net/) - $5 a Month | Privacy Focused | Recommended
@@ -66,6 +72,7 @@
 - [Ublock Origin](https://ublock.org) is my recommended adblocker.
 - [qBitorrent](https://www.qbittorrent.org/) is my recommended torrent client .
 - Use [GenP](https://minoa.is-a-femboy.lol/s/mfwuwlzohh) for getting adobe software.
+
 
 For more checkout the [Piracy Megathread](https://rentry.co/megathread) or the [FMHY Wiki](https://fmhy.net/beginners-guide) maybe even [EverythingMoe](https://everythingmoe.com/)!
 
