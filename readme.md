@@ -61,7 +61,8 @@
 **ChatGPT Prompts**
 - [Code Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/CodeBypass.md)
 - [AI Detector Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/AntiAI-Bypass)
-- [Universal Tier 5](https://www.reddit.com/r/ChatGPTJailbreak/comments/1e0zbsv/turn_every_chatgpt4o_chat_into_a_persistent_tier/)
+- [NSFW Jailbreaks](https://www.reddit.com/r/ChatGPTJailbreak/comments/1dzj8hu/ultimate_nsfw_jailbreaks/)
+- [GPT-4O Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/GPT-4O)
 
 **VPNS**
 - [Mullvad](https://mullvad.net/) - $5 a Month | Privacy Focused | Recommended
