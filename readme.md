@@ -63,6 +63,7 @@
 - [AI Detector Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/AntiAI-Bypass)
 - [NSFW Jailbreaks](https://www.reddit.com/r/ChatGPTJailbreak/comments/1dzj8hu/ultimate_nsfw_jailbreaks/)
 - [GPT-4O Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/GPT-4O.md)
+- [More](https://github.com/elder-plinius/L1B3RT45/tree/main)
 
 **VPNS**
 - [Mullvad](https://mullvad.net/) - $5 a Month | Privacy Focused | Recommended
