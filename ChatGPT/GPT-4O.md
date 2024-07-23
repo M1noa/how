@@ -2,4 +2,4 @@
 
 
 
-(taken from [here](https://github.com/elder-plinius/L1B3RT45/blob/main/OPENAI.mkd))
+taken from [here](https://github.com/elder-plinius/L1B3RT45/blob/main/OPENAI.mkd)
