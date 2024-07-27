@@ -59,10 +59,10 @@
 - [IPTV](https://github.com/M1noa/multi-m3u/blob/main/IPTV%20Sources.txt)
 
 **ChatGPT Prompts**
-- [Code Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/CodeBypass.md)
-- [AI Detector Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/AntiAI-Bypass)
+- [Code Bypass](/ChatGPT/CodeBypass)
+- [AI Detector Bypass](/ChatGPT/AntiAI-Bypass)
 - [NSFW Jailbreaks](https://www.reddit.com/r/ChatGPTJailbreak/comments/1dzj8hu/ultimate_nsfw_jailbreaks/)
-- [GPT-4O Bypass](https://github.com/M1noa/readme/blob/main/ChatGPT/GPT-4O.md)
+- [GPT-4O Bypass](/ChatGPT/GPT-4O)
 - [More](https://github.com/elder-plinius/L1B3RT45/tree/main)
 
 **VPNS**
