@@ -52,6 +52,11 @@
 - [Nullforums](https://nullforums.net/)
 - [Directleaks](https://directleaks.net/) 
 - [Flex](https://flexleaks.net/)
+- [Hovac](https://go.hovac.lol/)
+- [MasterOf13FPS](https://www.masterof13fps.com/forum/index.php)
+- [MykerdLeaks](https://t.me/mykerdleaks)
+- [FireSpigot](https://firespigot.com/)
+- **[More](/Minecraft)**
 
 **Live TV**
 - [Buff Sports](https://buffsportshub.stream/) - Sports
@@ -63,7 +68,7 @@
 - [AI Detector Bypass](/ChatGPT/AntiAI-Bypass)
 - [NSFW Jailbreaks](https://www.reddit.com/r/ChatGPTJailbreak/comments/1dzj8hu/ultimate_nsfw_jailbreaks/)
 - [GPT-4O Bypass](/ChatGPT/GPT-4O)
-- [More](https://github.com/elder-plinius/L1B3RT45/tree/main)
+- **[More](https://github.com/elder-plinius/L1B3RT45/tree/main)**
 
 **VPNS**
 - [Mullvad](https://mullvad.net/) - $5 a Month | Privacy Focused | Recommended
