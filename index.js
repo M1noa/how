@@ -8,11 +8,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const GITHUB_REPO = 'M1noa/how';
 
-const darkBackground = '#4b4958';
+const darkBackground = '#22212a';
 const textColor = '#f1f1f1';
 const linkColor = '#c9d3f1';
 const font = 'Ubuntu, sans-serif';
-const codeBackground = '#040024'; // Background color for code blocks
+const codeBackground = '#4b4958'; // Background color for code blocks
 const faviconUrl = 'https://cdn.discordapp.com/avatars/919656376807092304/1277c43f2298a39265c295e3d8ca883c.webp';
 
 // Middleware to log all requests
