@@ -8,7 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const GITHUB_REPO = 'M1noa/how';
 
-const darkBackground = '#22212a';
+const darkBackground = '#4b4958';
 const textColor = '#f1f1f1';
 const linkColor = '#c9d3f1';
 const font = 'Ubuntu, sans-serif';
