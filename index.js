@@ -11,16 +11,25 @@ const textColor = '#f1f1f1';
 const linkColor = '#c9d3f1';
 const font = 'Ubuntu, sans-serif';
 
+// Middleware to log all requests
+app.use((req, res, next) => {
+    console.log(`Request URL: ${req.url} | Request Method: ${req.method}`);
+    next();
+});
+
 // Function to fetch raw Markdown content
 async function fetchMarkdownContent(filePath) {
     const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/${filePath}`;
+    console.log(`Fetching content from: ${rawUrl}`);
+    
     const response = await axios.get(rawUrl);
     return response.data;
 }
+
 // Middleware to serve index.html
 app.get('/', async (req, res) => {
     try {
-        const filePath = 'readme.md';
+        const filePath = 'README.md'; // Use lowercase for consistency
         const markdownContent = await fetchMarkdownContent(filePath);
         const htmlContent = marked(markdownContent);
         const firstLine = extractFirstLine(markdownContent);
@@ -61,11 +70,11 @@ app.get('/', async (req, res) => {
                 <h1>${filePath}</h1>
                 <div>${htmlContent}</div>
                 <br>
-                <a href="/">Back to home</a>
             </body>
             </html>
         `);
     } catch (error) {
+        console.error('Error fetching README content:', error.message);
         res.status(500).send('Error fetching README content.');
     }
 });
@@ -114,17 +123,23 @@ app.get('*', async (req, res) => {
                 <h1>${filePath}</h1>
                 <div>${htmlContent}</div>
                 <br>
-                <a href="/">Back to home</a>
             </body>
             </html>
         `);
     } catch (error) {
+        console.error('Error fetching Markdown content:', error.message);
         if (error.response && error.response.status === 404) {
             return res.status(404).send('File not found');
         }
         res.status(500).send('Error fetching Markdown content.');
     }
 });
+
+// Function to extract the first line from Markdown content
+function extractFirstLine(markdown) {
+    const firstLine = markdown.split('\n')[0].replace(/(^#+\s+|[\*\_\[\]\(\)])/g, '').trim();
+    return firstLine;
+}
 
 // Start the server
 app.listen(PORT, () => {
