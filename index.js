@@ -23,6 +23,7 @@ app.get('/', async (req, res) => {
         const filePath = 'readme.md';
         const markdownContent = await fetchMarkdownContent(filePath);
         const htmlContent = marked(markdownContent);
+        const firstLine = extractFirstLine(markdownContent);
         
         res.send(`
             <html>
@@ -48,6 +49,13 @@ app.get('/', async (req, res) => {
                         text-decoration: underline;
                     }
                 </style>
+                <meta name="description" content="${firstLine}">
+                <meta property="og:title" content="${filePath.replace('.md', '')}">
+                <meta property="og:description" content="${firstLine}">
+                <meta property="og:image" content="URL_TO_IMAGE"> <!-- Optional: Add an image URL if needed -->
+                <meta property="og:url" content="http://localhost:${PORT}/${filePath.replace('.md', '')}">
+                <meta property="og:type" content="website">
+                <meta property="og:color" content="${linkColor}">
             </head>
             <body>
                 <h1>${filePath}</h1>
@@ -69,6 +77,7 @@ app.get('*', async (req, res) => {
     try {
         const markdownContent = await fetchMarkdownContent(filePath);
         const htmlContent = marked(markdownContent);
+        const firstLine = extractFirstLine(markdownContent);
         
         res.send(`
             <html>
@@ -93,6 +102,13 @@ app.get('*', async (req, res) => {
                         text-decoration: underline;
                     }
                 </style>
+                <meta name="description" content="${firstLine}">
+                <meta property="og:title" content="${filePath.replace('.md', '')}">
+                <meta property="og:description" content="${firstLine}">
+                <meta property="og:image" content="URL_TO_IMAGE"> <!-- Optional: Add an image URL if needed -->
+                <meta property="og:url" content="http://localhost:${PORT}/${filePath.replace('.md', '')}">
+                <meta property="og:type" content="website">
+                <meta property="og:color" content="${linkColor}">
             </head>
             <body>
                 <h1>${filePath}</h1>
