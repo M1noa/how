@@ -23,7 +23,7 @@
 6. **Convert URL to Base64**
    - Use [base64encode.org](https://www.base64encode.org/) to convert the URL to Base64.
 
-## In Game
+## In Game (run under the shell command)
 7. **Copy and Paste the Command into Ecstasy**
    - While logged into Ecstasy, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
 ```curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)```
