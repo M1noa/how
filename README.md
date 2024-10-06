@@ -33,7 +33,7 @@
 - [Kraken Files](https://krakenfiles.com/) - 1GB Max | Infinite Files Per | Last Forever | Download Speed: 5-20mbs
 - [Catbox](https://catbox.moe/) - 2MB Max | Infinite Files Per | Last Forever
 - [Lufi](https://upload.disroot.org/) | [Lufi](https://lufi.ethibox.fr/) - 2GB Max | Infinite Files Per | Last 30d
-- [Send](https://send.zcyph.cc/) - 5GB Max | 64 Files Per | Last 7d
+- [Send](https://send.vis.ee/) - 5GB Max | 64 Files Per | Last 7d
 - [Wormhole](https://wormhole.app/) - 10GB Max | Infinite Files Per | Last 24h or 100 Downloads
 - [Send Space](https://sendspace.com/) - 300MB Max | 20 Files Per | Last Forever
 - [Archive](https://archive.org) - Endless Max | Infinite Files Per | Last Forever
