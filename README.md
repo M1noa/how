@@ -79,6 +79,7 @@
 - [Ublock Origin](https://ublock.org) is my recommended adblocker.
 - [qBitorrent](https://www.qbittorrent.org/) is my recommended torrent client .
 - Use [GenP](https://minoa.is-a-femboy.lol/s/mfwuwlzohh) for getting adobe software.
+- [Reverse Shell Tutorial](/RVshell)
 
 
 For more checkout the [Piracy Megathread](https://rentry.co/megathread) or the [FMHY Wiki](https://fmhy.net/beginners-guide) maybe even [EverythingMoe](https://everythingmoe.com/)!
