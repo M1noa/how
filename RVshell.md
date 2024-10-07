@@ -1,9 +1,9 @@
 # Python Reverse Shell Tutorial (Linux and Windows)
 ### UPDATE: I made a Windows batch script that does it all automatically, from installing Python, to compiling the code and uploading, it's all user-friendly: [0137b23d50.zip](https://catlitter.minoa.cat/api/view/0137b23d50.zip)
 ###
-you will need [Python](https://www.python.org/downloads/), [Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip), & [Ngrok](https://ngrok.com)
 
 ## On Your Own Computer
+you will need [Python](https://www.python.org/downloads/), [Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip), & [Ngrok](https://ngrok.com)
 1. **Get Netcat**  
    - For Windows: [Download Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip)  
    - For Linux or macOS: Find and install the appropriate files for your OS.
