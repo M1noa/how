@@ -38,6 +38,7 @@
 - [Send Space](https://sendspace.com/) - 300MB Max | 20 Files Per | Last Forever
 - [Archive](https://archive.org) - Endless Max | Infinite Files Per | Last Forever
 - [AnonTransfer](https://anontransfer.com/)
+- [dBree](https://dbree.org/)
 
 **Video Hosting**
 - [Mycloud/Vidplay](https://vidplay.online/) - 20GB Max | API
