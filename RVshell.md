@@ -1,4 +1,6 @@
 # Python Reverse Shell Tutorial (Linux and Windows)
+### UPDATE: I made a windows batch script that does it all automatically, from installing python, to compiling the code, its all userfriendly: [fafc8a7461.zip](https://catlitter.minoa.cat/api/view/fafc8a7461.zip)
+###
 you will need [Python](https://www.python.org/downloads/), [Netcat](https://eternallybored.org/misc/netcat/netcat-win32-1.12.zip), & [Ngrok](https://ngrok.com)
 
 ## On Your Own Computer
@@ -18,7 +20,7 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 
 
 5. **Download and Edit Python File**
-   - [Download the Python file](https://catlitter.minoa.cat/api/view/bc52bb227eea93ac2dd0.zip) and in rs.py edit the IP and port to be the Ngrok one.
+   - [Download the Python script n compiler](https://catlitter.minoa.cat/api/view/fafc8a7461.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
    - Upload the compiled files to [anontransfer.com](https://anontransfer.com/)!
    - Once finished uploading goto the download url, click download, then go into your downlaod manager and copy the direct download link.
