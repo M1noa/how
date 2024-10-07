@@ -1,5 +1,6 @@
 # Python Reverse Shell Tutorial (Linux and Windows)
-### UPDATE: I made a Windows batch script that does it all automatically, from installing Python, to compiling the code and uploading, it's all user-friendly: [0137b23d50.zip](https://catlitter.minoa.cat/api/view/0137b23d50.zip)
+## I made a Windows batch script that does it all automatically, from installing Python, to compiling the code and uploading, it's all user-friendly
+## [0137b23d50.zip](https://catlitter.minoa.cat/api/view/0137b23d50.zip)
 ###
 
 ## On Your Own Computer
