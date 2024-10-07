@@ -19,7 +19,7 @@ you will need [Python](https://www.python.org/downloads/), [Netcat](https://eter
 
 
 5. **Download and Edit Python File**
-   - [Download the Python script n compiler](https://catlitter.minoa.cat/api/view/fafc8a7461.zip) and in rs.py edit the IP and port to be the Ngrok one.
+   - [Download the Python script n compiler](https://catlitter.minoa.cat/api/view/0137b23d50.zip) and in rs.py edit the IP and port to be the Ngrok one.
    - (Must have python installed) run windows compile.bat and only if you have wsl setup you can run linux compile.bat and the files that show up are compilex executables.
    - Upload the compiled files to [anontransfer.com](https://anontransfer.com/)!
    - Once finished uploading goto the download url, click download, then go into your downlaod manager and copy the direct download link.
