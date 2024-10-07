@@ -16,10 +16,12 @@
 
 **Movies/TV/Anime**
 - [Popcorn Time](https://github.com/popcorn-official/popcorn-desktop)
+- [MovieBoxPro](https://movieboxpro.app) Invite Only so [hmu to buy an invite](https://bio.minoa.cat) & Low quality without VIP [about $4 a month]
+- [BraFlix](https://braflix.so)
 - [YTS](https://yts.mx/) - Torrent
 - [Kuroiru](https://kuroiru.co/) - Anime
 - [Animixplay](https://animixplay.tube/) - Anime
-- [FMovies](https://fmoviesz.to)
+- [FMovies](https://fmoviesz.to) - RIP 2016-2024 😔
 - [Aniwave](https://aniwave.to/) - Anime
 - [AllManga](https://allmanga.to/) - Anime
 - [Mega](https://mega.nz/folder/Pt8AHLAC#tAte3gNlNossthoHiSCL5w/folder/3kcSSDzD) - Stream & Download
