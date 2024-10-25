@@ -52,6 +52,7 @@
 - 📀 [Archive](https://archive.org) - *Direct link | Endless storage*
 
 ### ⛏️ **Minecraft**
+- 🏁 **[Capes / Banners](/MC-Banners)**
 - 💠 [Blackspigot](https://www.blackspigot.com/)
 - 💎 [Spigotunlocked](https://spigotunlocked.org/)
 - 🔧 [Nullforums](https://nullforums.net/)
