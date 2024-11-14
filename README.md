@@ -2,6 +2,7 @@
 
 ### 🖥️ **Software** 
 - 🌐 [MTPrograms](https://programs.themicrotech.net/) - *Windows*
+- 👨‍💻 [HaxMac](https://haxmac.cc/)
 - 🍏 [cMacked](https://cmacked.com/) - *Mac*
 - 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents*
 - 🖱️ [IGetintoPC](https://igetintopc.com) - *Windows & Mac*
