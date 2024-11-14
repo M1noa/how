@@ -2,10 +2,10 @@
 
 ### 🖥️ **Software** 
 - 🌐 [MTPrograms](https://programs.themicrotech.net/) - *Windows*
-- 👨‍💻 [HaxMac](https://haxmac.cc/)
+- 👨‍💻 [HaxMac](https://haxmac.cc/) -*Mac*
 - 🍏 [cMacked](https://cmacked.com/) - *Mac*
-- 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents*
-- 🖱️ [IGetintoPC](https://igetintopc.com) - *Windows & Mac*
+- 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents (no duh)*
+- 🖱️ [IGetintoPC](https://igetintopc.com) - *Windows & Mac (supposedly phishy)*
 
 ### 🎮 **Games**
 - 🎲 [Game Drive](https://gamedrive.org/)
