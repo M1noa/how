@@ -1,12 +1,11 @@
 # 🌟 **Legit Stuff** 🌟
 
 ### 🖥️ **Software** 
-- 🐐 [CrackSurl](https://cracksurl.com)
-- 💜 [G-Meh](https://g-meh.com/) - *Windows & Max*
+- 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents n Direct Download*
 - 🌐 [MTPrograms](https://programs.themicrotech.net/) - *Windows*
+- 🐐 [CrackSurl](https://cracksurl.com)
 - 👨‍💻 [HaxMac](https://haxmac.cc/) -*Mac*
 - 🍏 [cMacked](https://cmacked.com/) - *Mac*
-- 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents (no duh)*
 - 🖱️ [IGetintoPC](https://igetintopc.com) - *Windows & Mac (supposedly phishy)*
 
 ### 🎮 **Games**
