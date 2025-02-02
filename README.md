@@ -44,6 +44,7 @@
 - 🗃️ [Archive](https://archive.org) - *Endless Storage | Lasts Forever*
 - 📲 [AnonTransfer](https://anontransfer.com/) - *Direct Download Link*
 - 🗳️ [dBree](https://dbree.org/) - *Direct Download Link*
+- 🗂️ **[More](https://gist.github.com/Bad3r/f7f91a4b4cdd15f467f095fddd5108a7)**
 
 ### 📹 **Video Hosting**
 - 💻 [Mycloud/Vidplay](https://vidplay.online/) - *20GB Max | API*
