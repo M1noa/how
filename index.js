@@ -60,6 +60,7 @@ app.get('*', async (req, res) => {
             <html>
             <head>
             <script defer src="https://cloud.umami.is/script.js" data-website-id="1aa208b9-94f3-498b-9a80-170a4e5bf62e"></script>
+            <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "509a9fa178fb4b9081f3cf33e475fbab"}'></script><!-- End Cloudflare Web Analytics -->
             <!-- 100% privacy-first analytics -->
 <script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
