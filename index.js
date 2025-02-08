@@ -59,6 +59,10 @@ app.get('*', async (req, res) => {
         res.send(`
             <html>
             <head>
+            <script defer src="https://cloud.umami.is/script.js" data-website-id="1aa208b9-94f3-498b-9a80-170a4e5bf62e"></script>
+            <!-- 100% privacy-first analytics -->
+<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
+<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
                 <title>${filePath}</title>
                 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" rel="stylesheet">
