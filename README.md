@@ -17,7 +17,7 @@
 - ⏳ [Steam Unlocked](https://steamunlocked.net) - *Bad reputation and slow download speeds…*
 
 ### 🎥 **Movies / TV / Anime**
-- 🍿 [Popcorn Time](https://github.com/popcorn-official/popcorn-desktop)
+- 🍿 [Popcorn Time](https://jfper.link/build/) ([Github](https://github.com/popcorn-official/popcorn-desktop)
 - 🎬 [MovieBoxPro](https://movieboxpro.app) - *Invite Only* [💬 hmu to buy](https://bio.minoa.cat) | *Low quality without VIP* (~$4/month) *but with VIP it's HDR & more!* | Supports: *iOS, Android, Android TV, Apple TV*
 - 🎟️ [Cineby](https://www.cineby.ru/)
 - 📀 [YTS](https://yts.mx/) - *Torrent*
