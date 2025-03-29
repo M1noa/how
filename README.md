@@ -1,6 +1,7 @@
 # 🌟 **Legit Stuff** 🌟
 
 ### 🖥️ **Software** 
+- ☠ [AppsTorrent](https://appstorrent.ru/) - *Russian, but fire ui, fast downloads, and newest versions!*
 - 📥 [MacTorrents](https://www.torrentmac.net/) - *Mac, Torrents n Direct Download*
 - 🌐 [MTPrograms](https://programs.themicrotech.net/) - *Windows*
 - 🐐 [CrackSurl](https://cracksurl.com)
