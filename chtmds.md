@@ -3,7 +3,7 @@ mods that give a slight advantage
 
 [BetterPVP](https://chocolateminecraft.com/betterpvpdownload.php)
 
-[SeedCrackerX](https://github.com/19MisterX98/SeedcrackerX/releases) & [Mapper](https://modrinth.com/mod/seedmapper/version/versions)
+[SeedCrackerX](https://github.com/19MisterX98/SeedcrackerX/releases) & [Mapper](https://modrinth.com/mod/seedmapper/version)
 
 [X-Ray](https://github.com/AdvancedXRay/XRay-Fabric/releases)
 
