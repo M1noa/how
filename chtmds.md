@@ -29,6 +29,8 @@ mods that give a slight advantage
 
 [X-AutoFish](https://modrinth.com/mod/x+-autofish/versions)
 
+[Baratone](https://github.com/cabaletta/baritone/actions)
+
 
 
 ## QoL
