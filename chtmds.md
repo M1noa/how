@@ -44,3 +44,4 @@ mods that give a slight advantage
 
 [Fade In Chunks](https://modrinth.com/mod/chunks-fade-in/versions)
 
+[WorldEdit Mod](https://modrinth.com/plugin/worldedit/versions)
