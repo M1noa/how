@@ -31,6 +31,8 @@ mods that give a slight advantage
 
 [Baratone](https://github.com/cabaletta/baritone/actions)
 
+[InvMove](https://modrinth.com/mod/invmove/versions)
+
 
 
 ## QoL
