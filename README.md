@@ -90,6 +90,7 @@
 - 🔗 [qBittorrent](https://www.qbittorrent.org/) - *Recommended Torrent Client*
 - ✨ Use [GenP](https://minoa.is-a-femboy.lol/s/mfwuwlzohh) for Adobe software.
 - 🖥️ [Reverse Shell Tutorial](/RVshell)
+- 🔍 [OSINT Resources](/OSINT)
 
 ---
 
