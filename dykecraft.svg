@@ -1,0 +1,132 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="roundSquare">
+      <rect x="8" y="8" width="112" height="112" rx="20" ry="20"/>
+    </clipPath>
+    
+    <filter id="roughPaper" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence baseFrequency="0.08" numOctaves="8" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="5"/>
+    </filter>
+    
+    <filter id="chaos" x="0%" y="0%" width="100%" height="100%">
+      <feTurbulence baseFrequency="0.15" numOctaves="3" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2"/>
+    </filter>
+    
+    <pattern id="weirdPattern1" patternUnits="userSpaceOnUse" width="15" height="15">
+      <circle cx="7" cy="3" r="2" fill="#d62d20" opacity="0.6"/>
+      <rect x="2" y="8" width="1" height="6" fill="#ff9baa" opacity="0.8"/>
+      <polygon points="12,1 14,5 10,5" fill="#a50062" opacity="0.4"/>
+    </pattern>
+    
+    <pattern id="weirdPattern2" patternUnits="userSpaceOnUse" width="12" height="18">
+      <ellipse cx="6" cy="9" rx="3" ry="1" fill="#d461a6" opacity="0.7"/>
+      <circle cx="2" cy="2" r="1" fill="#ffffff" opacity="0.9"/>
+      <rect x="8" y="12" width="3" height="1" fill="#d62d20" opacity="0.5"/>
+    </pattern>
+    
+    <radialGradient id="chaosGrad" cx="30%" cy="70%" r="80%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.9" />
+      <stop offset="20%" style="stop-color:#ff9baa;stop-opacity:0.3" />
+      <stop offset="40%" style="stop-color:#d461a6;stop-opacity:0.8" />
+      <stop offset="60%" style="stop-color:#a50062;stop-opacity:0.5" />
+      <stop offset="80%" style="stop-color:#d62d20;stop-opacity:0.7" />
+      <stop offset="100%" style="stop-color:#ff9baa;stop-opacity:0.4" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background with rounded square clip -->
+  <g clip-path="url(#roundSquare)">
+    <!-- Chaotic background layers -->
+    <rect width="128" height="128" fill="url(#chaosGrad)" opacity="0.6"/>
+    <rect width="128" height="128" fill="url(#weirdPattern1)" opacity="0.3"/>
+    
+    <!-- Absolutely EVERYWHERE chaos -->
+    <circle cx="23" cy="15" r="7" fill="#d62d20" opacity="0.8" filter="url(#chaos)"/>
+    <circle cx="89" cy="23" r="12" fill="#ff9baa" opacity="0.6"/>
+    <circle cx="45" cy="34" r="4" fill="#ffffff" opacity="0.9"/>
+    <circle cx="67" cy="12" r="9" fill="#a50062" opacity="0.7"/>
+    <circle cx="105" cy="45" r="6" fill="#d461a6" opacity="0.8"/>
+    <circle cx="12" cy="67" r="11" fill="#d62d20" opacity="0.5"/>
+    <circle cx="78" cy="56" r="8" fill="#ff9baa" opacity="0.9"/>
+    <circle cx="34" cy="78" r="5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="98" cy="89" r="13" fill="#a50062" opacity="0.7"/>
+    <circle cx="56" cy="98" r="7" fill="#d461a6" opacity="0.8"/>
+    <circle cx="115" cy="78" r="4" fill="#d62d20" opacity="0.9"/>
+    <circle cx="15" cy="95" r="9" fill="#ff9baa" opacity="0.5"/>
+    <circle cx="87" cy="105" r="6" fill="#ffffff" opacity="0.8"/>
+    <circle cx="23" cy="45" r="3" fill="#a50062" opacity="0.9"/>
+    <circle cx="67" cy="78" r="10" fill="#d461a6" opacity="0.4"/>
+    
+    <!-- Random rectangles EVERYWHERE -->
+    <rect x="15" y="25" width="8" height="15" fill="#d62d20" opacity="0.7" transform="rotate(67 19 32)"/>
+    <rect x="89" y="67" width="12" height="4" fill="#ff9baa" opacity="0.8" transform="rotate(-23 95 69)"/>
+    <rect x="45" y="15" width="6" height="20" fill="#ffffff" opacity="0.6" transform="rotate(145 48 25)"/>
+    <rect x="78" y="34" width="15" height="3" fill="#a50062" opacity="0.9" transform="rotate(89 85 35)"/>
+    <rect x="23" y="89" width="9" height="12" fill="#d461a6" opacity="0.5" transform="rotate(-67 27 95)"/>
+    <rect x="105" y="25" width="4" height="18" fill="#d62d20" opacity="0.8" transform="rotate(34 107 34)"/>
+    <rect x="12" y="45" width="16" height="5" fill="#ff9baa" opacity="0.7" transform="rotate(-89 20 47)"/>
+    <rect x="67" y="89" width="7" height="11" fill="#ffffff" opacity="0.9" transform="rotate(123 70 94)"/>
+    <rect x="34" y="56" width="13" height="6" fill="#a50062" opacity="0.6" transform="rotate(-45 40 59)"/>
+    <rect x="98" y="12" width="5" height="14" fill="#d461a6" opacity="0.8" transform="rotate(78 100 19)"/>
+    
+    <!-- Wonky ellipses scattered -->
+    <ellipse cx="56" cy="23" rx="12" ry="6" fill="#d62d20" opacity="0.5" transform="rotate(34 56 23)"/>
+    <ellipse cx="89" cy="45" rx="8" ry="15" fill="#ff9baa" opacity="0.8" transform="rotate(-67 89 45)"/>
+    <ellipse cx="23" cy="78" rx="14" ry="4" fill="#ffffff" opacity="0.7" transform="rotate(123 23 78)"/>
+    <ellipse cx="67" cy="105" rx="6" ry="18" fill="#a50062" opacity="0.6" transform="rotate(-23 67 105)"/>
+    <ellipse cx="105" cy="67" rx="11" ry="7" fill="#d461a6" opacity="0.9" transform="rotate(89 105 67)"/>
+    <ellipse cx="34" cy="12" rx="9" ry="12" fill="#d62d20" opacity="0.4" transform="rotate(-145 34 12)"/>
+    <ellipse cx="78" cy="78" rx="16" ry="5" fill="#ff9baa" opacity="0.7" transform="rotate(56 78 78)"/>
+    <ellipse cx="12" cy="23" rx="7" ry="13" fill="#ffffff" opacity="0.8" transform="rotate(-89 12 23)"/>
+    <ellipse cx="98" cy="56" rx="5" ry="9" fill="#a50062" opacity="0.5" transform="rotate(167 98 56)"/>
+    <ellipse cx="45" cy="89" rx="13" ry="8" fill="#d461a6" opacity="0.8" transform="rotate(-34 45 89)"/>
+    
+    <!-- Random triangles everywhere -->
+    <polygon points="15,56 25,67 12,72" fill="#d62d20" opacity="0.8"/>
+    <polygon points="89,15 102,23 95,35" fill="#ff9baa" opacity="0.6"/>
+    <polygon points="67,67 75,78 58,82" fill="#ffffff" opacity="0.9"/>
+    <polygon points="34,34 28,45 42,48" fill="#a50062" opacity="0.7"/>
+    <polygon points="105,89 115,95 108,105" fill="#d461a6" opacity="0.5"/>
+    <polygon points="23,105 18,115 35,112" fill="#d62d20" opacity="0.8"/>
+    <polygon points="78,12 85,8 88,18" fill="#ff9baa" opacity="0.7"/>
+    <polygon points="45,67 52,58 38,61" fill="#ffffff" opacity="0.6"/>
+    <polygon points="98,34 105,28 112,42" fill="#a50062" opacity="0.8"/>
+    <polygon points="56,45 48,52 61,55" fill="#d461a6" opacity="0.9"/>
+    
+    <!-- Chaotic paths everywhere -->
+    <path d="M12,34 Q23,23 34,45 L45,23 Q67,12 78,34" stroke="#d62d20" stroke-width="2" fill="none" opacity="0.8"/>
+    <path d="M89,78 Q78,89 67,67 L56,89 Q34,98 23,78" stroke="#ff9baa" stroke-width="3" fill="none" opacity="0.7"/>
+    <path d="M105,12 Q115,23 98,34 L112,45 Q89,56 105,67" stroke="#ffffff" stroke-width="1" fill="none" opacity="0.9"/>
+    <path d="M15,89 Q5,78 18,67 L8,56 Q25,45 37,67" stroke="#a50062" stroke-width="2" fill="none" opacity="0.6"/>
+    <path d="M78,105 Q89,115 67,98 L85,112 Q56,89 45,105" stroke="#d461a6" stroke-width="4" fill="none" opacity="0.8"/>
+    
+    <!-- Random blobs with patterns -->
+    <path d="M45,56 Q56,45 67,56 Q78,67 67,78 Q56,89 45,78 Q34,67 45,56 Z" fill="url(#weirdPattern1)" opacity="0.6"/>
+    <path d="M89,89 Q98,78 105,89 Q112,98 105,105 Q98,112 89,105 Q82,98 89,89 Z" fill="url(#weirdPattern2)" opacity="0.8"/>
+    <path d="M23,23 Q34,12 45,23 Q56,34 45,45 Q34,56 23,45 Q12,34 23,23 Z" fill="url(#weirdPattern1)" opacity="0.5"/>
+    
+    <!-- Tiny chaos elements -->
+    <circle cx="19" cy="38" r="1" fill="#ffffff"/>
+    <circle cx="73" cy="91" r="2" fill="#d62d20"/>
+    <circle cx="91" cy="41" r="1" fill="#a50062"/>
+    <circle cx="37" cy="19" r="2" fill="#ff9baa"/>
+    <circle cx="82" cy="73" r="1" fill="#d461a6"/>
+    <circle cx="29" cy="91" r="2" fill="#ffffff"/>
+    <circle cx="101" cy="19" r="1" fill="#d62d20"/>
+    <circle cx="55" cy="82" r="2" fill="#a50062"/>
+    <circle cx="73" cy="29" r="1" fill="#ff9baa"/>
+    <circle cx="46" cy="73" r="2" fill="#d461a6"/>
+    
+    <!-- More random rectangles -->
+    <rect x="19" y="73" width="2" height="6" fill="#ffffff" transform="rotate(67 20 76)"/>
+    <rect x="91" y="19" width="4" height="2" fill="#d62d20" transform="rotate(-34 93 20)"/>
+    <rect x="37" y="91" width="3" height="8" fill="#a50062" transform="rotate(123 38 95)"/>
+    <rect x="73" y="37" width="1" height="5" fill="#ff9baa" transform="rotate(-89 73 39)"/>
+    <rect x="55" y="55" width="6" height="1" fill="#d461a6" transform="rotate(45 58 55)"/>
+    
+    <!-- Final layer of absolute chaos -->
+    <path d="M5,5 Q64,32 123,5 Q96,64 123,123 Q64,96 5,123 Q32,64 5,5 Z" fill="#ffffff" opacity="0.1" filter="url(#roughPaper)"/>
+  </g>
+</svg>
