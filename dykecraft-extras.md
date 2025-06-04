@@ -34,4 +34,4 @@
 - **WorldEditCUI**: https://www.curseforge.com/minecraft/mc-mods/worldeditcui-forge-edition
 
 
-in the future i plan to make a batch script to automatically download all of theese mods
+[`MODS FOLDER WITH ALL OF THEESE MODS`](https://files.catbox.moe/z8v7rz.rar)
