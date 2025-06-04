@@ -25,5 +25,13 @@
 - **Thanos Mod**: https://sk1er.club/mods/thanosmod
 - **Wings Mod (Modified)**: https://www.mediafire.com/file/ugbdrl0vvj0ojxb/%5B1.8.9%5D_Wings_Mod-1.2.jar (made by https://www.youtube.com/watch?v=5_iZ4sxymu0)
 - **WorldEdit**: https://www.curseforge.com/minecraft/mc-mods/worldedit
+- **AntiGhost**: https://www.curseforge.com/minecraft/mc-mods/antighost
+- **BadlionPingDisplay**: https://hypixel.net/threads/badlion-ping-display-mod-1-8-9.2332497/ (no longer exists.. my jar: https://litter.minoa.cat/api/view/3dc96eb0380b16fb.jar)
+- **BetterFPS**: https://www.curseforge.com/minecraft/mc-mods/betterfps
+- **ChunkAnimator**: https://www.curseforge.com/minecraft/mc-mods/chunk-animator
+- **ItemCounter**: https://hypixel.net/threads/1-8-9-item-counter-mod.3683685/ (no longer exists.. my jar: https://litter.minoa.cat/api/view/fb3d7889058e809d.jar)
+- **RandomPatches**: https://www.curseforge.com/minecraft/mc-mods/randompatches-forge
+- **WorldEditCUI**: https://www.curseforge.com/minecraft/mc-mods/worldeditcui-forge-edition
+
 
 in the future i plan to make a batch script to automatically download all of theese mods
