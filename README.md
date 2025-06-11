@@ -44,8 +44,8 @@
 - 🌌 [Wormhole](https://wormhole.app/) - *10GB Max | Lasts 24 hours or 100 Downloads*
 - 📥 [Send Space](https://sendspace.com/) - *300MB Max | Lasts Forever*
 - 🗃️ [Archive](https://archive.org) - *Endless Storage | Lasts Forever*
-- 📲 [AnonTransfer](https://anontransfer.com/) - *Direct Download Link*
-- 🗳️ [dBree](https://dbree.org/) - *Direct Download Link*
+- 📲 [AnonTransfer](https://anontransfer.com/) - *Direct Download Link temporary*
+- 🗳️ [BuzzHeavier](https://buzzheavier.com/) - *no upload limits and files stay as long as they get atleast 30 downloads every 60 days*
 - 🗂️ **[More](https://gist.github.com/Bad3r/f7f91a4b4cdd15f467f095fddd5108a7)**
 
 ### 📹 **Video Hosting**
