@@ -89,3 +89,7 @@ Example with RTX 3060 Ti:
 - **Savings with prebuilt**: $26-181
 
 This makes the IPASON an excellent value as a base system for future GPU upgrades.
+
+---
+
+Last Updated: June 15, 2025
