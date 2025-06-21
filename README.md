@@ -83,7 +83,9 @@
 
 ### 🔒 **VPNs**
 - 🔐 [Mullvad](https://mullvad.net/) - *$5 a Month | Privacy Focused | Recommended*
+- ☁️ [Cloudflare WARP](https://one.one.one.one/) - *Free | Privacy Focused | Anycast*
 - 🌍 [IPSpeed](https://ipspeed.info/freevpn_openvpn.php) - *Free OpenVPN | Unknown Privacy | Unreliable*
+- 🌐 [OutlineKeys.com](https://outlinekeys.com/) - *Free Shadowsocks (+ Outline/Trojan), Vless | Unknown Privacy | Unreliable*
 - ⚡ [BrightVPN](https://brightvpn.com/) - *Free | No Privacy | Fast Speeds*
 
 ### 🛠️ **Other** 
