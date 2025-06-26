@@ -74,11 +74,10 @@
 - 🏅 [Give Me Reddit](https://givemereddit.eu/) - *Sports*
 - 📡 [IPTV](https://github.com/M1noa/multi-m3u/blob/main/IPTV%20Sources.txt)
 
-### 💬 **ChatGPT Prompts**
-- 💻 [Code Bypass](/ChatGPT/CodeBypass)
-- 🤖 [AI Detector Bypass](/ChatGPT/AntiAI-Bypass)
-- 🔞 [NSFW Jailbreaks](https://www.reddit.com/r/ChatGPTJailbreak/comments/1dzj8hu/ultimate_nsfw_jailbreaks/)
-- 💡 [GPT-4O Bypass](/ChatGPT/GPT-4O)
+### 💬 **LLM Prompts**
+- 🤖 [AI Detector Bypass](/LLM-JB/AntiAI-Bypass)
+- 🎨 [Trae Jailbreak](/LLM-JB/Trae-JB)
+- 🔒 [System Prompt Jailbreaks](/LLM-JB/System-Prompt-JB)
 - 🗂️ **[More](https://github.com/elder-plinius/L1B3RT45/tree/main)**
 
 ### 🔒 **VPNs**
