@@ -2,24 +2,24 @@
 
 **Disclaimer:** This documentation describes an unofficial, undocumented API used by the Google AI Studio web interface. It is not supported by Google and may change or break at any time without notice. Use of this API may be against Google's Terms of Service. Proceed at your own risk.
 
-## Authentication
+## Authentication & Session Management
 
-The API uses a combination of an API key, an authorization hash, and session cookies for authentication. These credentials are temporary and must be obtained from an active AI Studio session.
+The API uses a combination of a primary authorization hash, an API key, and session cookies. These are temporary and must be obtained from an active AI Studio session. To maintain a session, you may also need to periodically generate a new access token.
 
-### How to Obtain Credentials
+### 1. How to Obtain Initial Credentials
 
 1.  Open your web browser and navigate to [https://aistudio.google.com/](https://aistudio.google.com/).
-2.  Open the Developer Tools in your browser (usually by pressing `F12` or right-clicking and selecting "Inspect").
-3.  Go to the "Network" tab in the Developer Tools.
-4.  In AI Studio, perform an action, such as sending a message to the AI.
+2.  Open the Developer Tools (usually `F12` or right-click -> "Inspect").
+3.  Go to the **Network** tab.
+4.  In AI Studio, perform an action, such as sending a message.
 5.  Look for a request to `alkalimakersuite-pa.clients6.google.com` in the network log. The most common one will be `GenerateContent`.
-6.  Click on the request to view its details. Go to the "Headers" section.
-7.  Find and copy the following values from the "Request Headers" section:
+6.  Click the request and go to the **Headers** tab.
+7.  Find and copy the following values from the **Request Headers** section:
     *   `Authorization`: This is your primary authorization token (e.g., `SAPISIDHASH ...`).
     *   `X-Goog-Api-Key`: This is your API key.
     *   `Cookie`: This contains your session cookies.
 
-You will need to set these values as variables in your environment or replace them in the example scripts.
+It is highly recommended to store these as environment variables.
 
 ```bash
 # Recommended: Set credentials as variables
@@ -27,6 +27,32 @@ export AUTH_TOKEN="SAPISIDHASH ..."
 export API_KEY="AIzaSy..."
 export COOKIE="AEC=...; NID=...; ..."
 ```
+
+### 2. Maintaining the Session
+
+The initial credentials may expire. The `GenerateAccessToken` endpoint appears to be used to refresh the session or obtain a new short-lived token. While its exact usage in subsequent calls is not fully clear from observation, it's likely a necessary step for long-running scripts.
+
+*   **Endpoint:** `GenerateAccessToken`
+*   **Method:** `POST`
+*   **Request Body:** `["users/me"]`
+
+**Example `curl` Request:**
+
+```bash
+curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkali.applications.makersuite.v1.MakerSuiteService/GenerateAccessToken' \
+  -X POST \
+  -H "Authorization: $AUTH_TOKEN" \
+  -H "X-Goog-Api-Key: $API_KEY" \
+  -H "Cookie: $COOKIE" \
+  -H 'Content-Type: application/json+protobuf' \
+  --data-raw '["users/me"]'
+```
+
+**Response:**
+The response is a JSON array containing a single base64 encoded string.
+
+*   **Raw Response:** `["ya29.a0A..."]`
+*   **Decoded:** The string inside is your new access token. It is unclear if this token should replace the `Authorization` header or be used elsewhere. For now, all other observed requests continue to use the original `SAPISIDHASH` token.
 
 ---
 
@@ -55,31 +81,40 @@ curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkal
 ```
 
 **Response:**
-The response is a large, complex JSON array containing objects for each model. Each object details the model's name, version, token limits, supported methods, pricing, and more. You will need to parse this to find the model you wish to use.
+The response is a single, large base64 encoded string. When decoded, it reveals a JSON array where each element is an array containing detailed information about a model (name, version, token limits, supported methods, pricing, etc.).
+
+**Example Decoded Response Snippet:**
+```json
+[
+  [
+    [
+      "models/gemini-2.5-pro",
+      null,
+      "2.5",
+      "Gemini 2.5 Pro",
+      "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
+      1048576,
+      65536,
+      [
+        "generateContent",
+        "countTokens",
+        "createCachedContent",
+        "batchGenerateContent"
+      ],
+      // ... many more properties
+    ]
+  ],
+  // ... other models
+]
+```
 
 ### Count Tokens
 
-Counts the number of tokens in a given string of text for a specific model.
+Counts the number of tokens in a given text prompt for a specific model.
 
 *   **Endpoint:** `CountTokens`
 *   **Method:** `POST`
-
-**Request Body Structure:**
-
-```json
-[
-  "models/<model_name>",
-  [
-    [
-      [
-        null,
-        "<your_text_here>"
-      ]
-    ],
-    "user"
-  ]
-]
-```
+*   **Request Body:** `["models/<model_name>", [[[[null, "<your_text_here>"]], "user"]]]`
 
 **Example `curl` Request:**
 
@@ -90,62 +125,49 @@ curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkal
   -H "X-Goog-Api-Key: $API_KEY" \
   -H "Cookie: $COOKIE" \
   -H 'Content-Type: application/json+protobuf' \
-  --data-raw '["models/gemini-2.5-pro",[[[[null,"was steve jobs actually a phsycopath?? or is that just a myth"]],"user"]]]'
+  --data-raw '["models/gemini-2.5-pro",[[[[null,"was steve jobs actually a psychopath?? or is that just a myth"]],"user"]]]'
 ```
 
 **Response:**
-The response is a base64 encoded string. When decoded, it reveals a nested array. The token count is typically the first integer value in the response. For `[17,[],[[[16],1]],null,null,[[1,17]]]`, the token count is `17`.
-
-### Generate Access Token
-
-Generates a temporary access token. It appears this may need to be run periodically to maintain an active session.
-
-*   **Endpoint:** `GenerateAccessToken`
-*   **Method:** `POST`
-*   **Request Body:** `["users/me"]`
-
-**Example `curl` Request:**
-
-```bash
-curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkali.applications.makersuite.v1.MakerSuiteService/GenerateAccessToken' \
-  -X POST \
-  -H "Authorization: $AUTH_TOKEN" \
-  -H "X-Goog-Api-Key: $API_KEY" \
-  -H "Cookie: $COOKIE" \
-  -H 'Content-Type: application/json+protobuf' \
-  --data-raw '["users/me"]'
-```
-
-**Response:**
-The response is a JSON array containing a single base64 encoded string, which is the access token.
+The response is a base64 encoded string. When decoded, it reveals a nested array. The token count is the first integer value. For a decoded response of `[17,[],[[[16],1]],null,null,[[1,17]]]`, the token count is `17`.
 
 ---
 
 ## GenerateContent API
 
-This is the main endpoint for generating AI responses. It is highly versatile and supports numerous features. All `GenerateContent` calls are streaming.
+This is the primary endpoint for all generative tasks, including text, chat, and multimodal interactions.
 
 *   **Endpoint:** `GenerateContent`
 *   **Method:** `POST`
 
 ### Response Streaming
 
-All responses from the `GenerateContent` endpoint are streamed. This means the server sends the response in multiple small chunks. You will receive a stream of data that needs to be parsed. Each chunk is a JSON-like array. The final, complete response is an aggregation of the text found within these chunks.
+All responses from `GenerateContent` are streamed in chunks.
+*   **Thinking Process:** The initial chunks often contain the model's internal reasoning, prefixed with markdown like `**Analyzing User Input**`. This is part of the "thinking budget" and is useful for debugging.
+*   **Content:** Subsequent chunks contain parts of the final answer.
+*   **Aggregation:** You must parse the stream and concatenate the text from the content chunks to form the complete response. A typical content chunk looks like: `[[[[[[null,"This is a part of the response."]]],"model"]]]]`
 
-A typical chunk containing text looks like this:
-`[[[[[[null,"This is a part of the response."]]],"model"]]]]`
+### Master Payload Structure
 
-You must concatenate the text from all such chunks to form the full message.
-
-### Basic Text Generation
-
-This is the simplest request, providing a single prompt to a model.
-
-**Request Body Structure:**
+The `GenerateContent` request body is a complex JSON array with 5 main parts.
 
 ```json
 [
-  "models/<model_name>",
+  "<model_name>",
+  [ /* History & Prompt Array */ ],
+  [ /* Tool Configuration Array */ ],
+  [ /* Generation & Safety Config Array */ ],
+  "<session_data_string>"
+]
+```
+
+#### 1. History & Prompt Array
+
+This array contains the full conversation history.
+
+**Single Prompt:**
+```json
+[
   [
     [
       [
@@ -158,80 +180,117 @@ This is the simplest request, providing a single prompt to a model.
 ]
 ```
 
-**Example `curl` Request:**
-
-```bash
-curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkali.applications.makersuite.v1.MakerSuiteService/GenerateContent' \
-  -X POST \
-  -H "Authorization: $AUTH_TOKEN" \
-  -H "X-Goog-Api-Key: $API_KEY" \
-  -H "Cookie: $COOKIE" \
-  -H 'Content-Type: application/json+protobuf' \
-  --data-raw '["models/gemini-2.5-pro",[[[[null,"was steve jobs actually a phsycopath?? or is that just a myth"]],"user"]]]'
+**Multi-turn Chat:**
+```json
+[
+  [
+    [
+      [null, "<first_user_prompt>"]
+    ], "user"
+  ],
+  [
+    [
+      [null, "<first_model_response>"]
+    ], "model"
+  ],
+  [
+    [
+      [null, "<second_user_prompt>"]
+    ], "user"
+  ]
+]
 ```
 
-### Advanced Features
+**System Prompt:** A system prompt is set by making it the first turn in the history, with an empty model response.
+```json
+[
+  [
+    [
+      [null, "You are a helpful pirate assistant named Bob."]
+    ], "user"
+  ],
+  [
+    [
+      [null, ""]
+    ], "model"
+  ],
+  [
+    [
+      [null, "Ahoy! What be the weather today?"]
+    ], "user"
+  ]
+]
+```
 
-The request body can be expanded to include chat history, system prompts, and tools.
-
-#### Chat History
-
-To provide conversational context, include past user prompts and model responses in the payload.
-
-**Request Body Structure:**
+**Image Input (Multimodal):** To include an image, you must first get an upload ID (process not documented here) and include it in the user turn alongside the text prompt.
 
 ```json
 [
-  "models/<model_name>",
   [
     [
-      [
-        null,
-        "<first_user_prompt>"
-      ]
-    ],
-    "user"
-  ],
-  [
-    [
-      [
-        null,
-        "<first_model_response>"
-      ]
-    ],
-    "model"
-  ],
-  [
-    [
-      [
-        null,
-        "<second_user_prompt>"
-      ]
+      // The first element is the image data
+      [null, null, null, null, null, ["<image_upload_id>"]],
+      // The second element is the text prompt
+      [null, "describe what you see in this image"]
     ],
     "user"
   ]
 ]
 ```
 
-#### System Prompt
+#### 2. Tool Configuration Array
 
-You can provide a system prompt to guide the model's persona, tone, and behavior. This is done by adding a "user" and "model" turn at the beginning of the history, where the user provides the instructions and the model gives a simple acknowledgment.
+This array specifies which tools the model can use (e.g., Google Search, Code Interpreter). The numbers correspond to specific tools enabled in the AI Studio UI.
 
-**Example `curl` with System Prompt:**
-The `--data-raw` payload would look like this:
+**Example (enabling tools 7, 8, 9, 10):**
 ```json
-["models/gemini-2.5-pro",[[[[null,"hello this is a system prompt example"]],"user"],[[[null,""]],"model"],[[[null,"now i gave you a system prompt"]],"user"]]]
+[
+  [null, null, 7, 5],
+  [null, null, 8, 5],
+  [null, null, 9, 5],
+  [null, null, 10, 5]
+]
 ```
 
-#### Tools (Grounding, URL Context, Code Execution)
+#### 3. Generation & Safety Config Array
 
-The API can be instructed to use tools like Google Search, browse a URL, or execute code. This is controlled by a complex set of parameters in the request payload.
+This array controls the generation parameters. Based on observation, the structure is:
+`[null, null, null, <max_output_tokens>, <temperature>, <top_p>, <top_k>, "text/plain", ...other_nulls..., [<candidate_count>, -1]]`
 
-*   **Google Search (Grounding):** The model can search Google to answer questions about recent events or provide up-to-date information. This is enabled by a specific array structure in the payload, as seen in the example.
-*   **URL Context:** You can provide a URL for the model to browse and use as context for its response.
-*   **Code Execution:** The model can generate and execute Python code in a sandboxed environment to solve problems. The response stream will include the code and the output of its execution.
-*   **Thinking Mode:** For complex requests, you can enable a "thinking budget" which will cause the model to output its reasoning process as part of the stream before delivering the final answer. This is useful for debugging and understanding the model's logic. To disable it, the parameters in the payload should be adjusted accordingly.
+*   **`max_output_tokens`**: (e.g., `65536`) Maximum tokens in the response.
+*   **`temperature`**: (e.g., `0.3`) Controls randomness. Lower is more deterministic.
+*   **`top_p`**: (e.g., `0.95`) Nucleus sampling probability.
+*   **`top_k`**: (e.g., `64`) Samples from the K most likely tokens.
+*   **`candidate_count`**: (e.g., `1`) How many response choices to generate.
 
-Analyzing the exact payload structure for each tool requires careful inspection of the network requests made by AI Studio when these features are used. The examples you provided demonstrate the complexity of these payloads.
+**Example:**
+```json
+[null, null, null, 65536, 0.3, 0.95, 64, "text/plain", null, null, null, null, null, null, null, null, [1, -1]]
+```
 
-(this was made by looking at inspect element and givin a bunch of requests to gemini-2.5-pro and their responses to have it genorate this, none of this has actually be tested but i dont see why it wouldnt work, if you would like you can submit a pull request [here](https://github.com/M1noa/how))
+#### 4. Session Data String
+
+This is a long, opaque, base64-like string that appears to be a unique identifier for the request or session. It must be included.
+
+**Example:** `"!wcKlwprNAAZYy...G1jW20"`
+
+### Full `GenerateContent` Example
+
+This `curl` combines all the elements for a multimodal request.
+
+```bash
+# Note: The data payload is extremely long and sensitive to formatting.
+# It is simplified here for readability.
+DATA_PAYLOAD='["models/gemini-2.5-pro",[...history_and_image_array...],[...tool_config...],[...generation_config...],"<session_data_string>"]'
+
+curl 'https://alkalimakersuite-pa.clients6.google.com/$rpc/google.internal.alkali.applications.makersuite.v1.MakerSuiteService/GenerateContent' \
+  -X POST \
+  -H "Authorization: $AUTH_TOKEN" \
+  -H "X-Goog-Api-Key: $API_KEY" \
+  -H "Cookie: $COOKIE" \
+  -H 'Content-Type: application/json+protobuf' \
+  --data-raw "$DATA_PAYLOAD"
+```
+
+---
+*This documentation was generated by analyzing network requests from the AI Studio web interface. It has not been exhaustively tested and is provided as-is. Contributions and corrections are welcome via pull request [here](https://github.com/M1noa/how).*
