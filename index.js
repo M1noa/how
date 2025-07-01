@@ -1,146 +1,188 @@
 const express = require('express');
 const axios = require('axios');
 const { marked } = require('marked');
-const { createWriteStream } = require('fs');
-const { get } = require('https');
+const path = require('path');
+const ejs = require('ejs');
+const hljs = require('highlight.js');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const GITHUB_REPO = 'M1noa/how';
-
-const darkBackground = '#22212a';
-const textColor = '#f1f1f1';
-const linkColor = '#c9d3f1';
-const font = 'Ubuntu, sans-serif';
-const codeBackground = '#4b4958'; // Background color for code blocks
+const BASE_URL = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : `http://localhost:${PORT}`;
 const faviconUrl = 'https://cdn.discordapp.com/avatars/919656376807092304/1277c43f2298a39265c295e3d8ca883c.webp';
 
-// Middleware to log all requests
+// Setup view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Configure marked
+marked.setOptions({
+    breaks: true,
+    gfm: true,
+    highlight: (code, lang) => {
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
+    }
+});
+
+// Security and logging middleware
 app.use((req, res, next) => {
-    console.log(`Request URL: ${req.url} | Request Method: ${req.method}`);
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'DENY');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url} - ${req.ip}`);
     next();
 });
 
-// Serve favicon directly
-app.get('/favicon.ico', (req, res) => {
-    res.writeHead(200, { 'Content-Type': 'image/webp' });
-    get(faviconUrl, (response) => {
-        response.pipe(res);
-    });
-});
+// Cache for markdown content
+const contentCache = new Map();
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
-// Function to fetch raw Markdown content
 async function fetchMarkdownContent(filePath) {
+    const cacheKey = filePath;
+    const cached = contentCache.get(cacheKey);
+
+    if (cached && Date.now() - cached.timestamp < CACHE_TTL) {
+        console.log(`Cache hit for: ${filePath}`);
+        return cached.content;
+    }
+
     const rawUrl = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/${filePath}`;
     console.log(`Fetching content from: ${rawUrl}`);
-    
-    const response = await axios.get(rawUrl);
-    return response.data;
+
+    try {
+        const response = await axios.get(rawUrl, {
+            timeout: 10000,
+            headers: { 'User-Agent': 'ReadmeHow-Bot/1.0' }
+        });
+
+        contentCache.set(cacheKey, {
+            content: response.data,
+            timestamp: Date.now()
+        });
+
+        return response.data;
+    } catch (error) {
+        console.error(`Error fetching ${filePath}:`, error.message);
+        throw error;
+    }
 }
 
-// Route to serve Markdown files as HTML
-app.get('*', async (req, res) => {
-    let filePath = req.params[0] + '.md';
+function extractDescription(markdown) {
+    if (!markdown) return 'A dynamic README file viewer.';
+    const firstParagraph = markdown.split('\n\n')[0];
+    return firstParagraph.replace(/[^a-zA-Z0-9 .,!?'"-]/g, ' ').substring(0, 160);
+}
 
-    // If the path is just /, use README.md
-    if (req.params[0] === '') {
-        filePath = 'README.md';
+// Function to fetch repository file tree
+async function fetchRepoTree() {
+    try {
+        const response = await axios.get(`https://api.github.com/repos/${GITHUB_REPO}/git/trees/main?recursive=1`, {
+            timeout: 10000,
+            headers: { 'User-Agent': 'ReadmeHow-Bot/1.0' }
+        });
+        
+        return response.data.tree.filter(item => 
+            item.type === 'blob' && 
+            item.path.endsWith('.md') &&
+            !item.path.includes('node_modules') &&
+            !item.path.includes('.git')
+        );
+    } catch (error) {
+        console.error('Error fetching repo tree:', error.message);
+        return [];
     }
-    // If the path is just /, use README.md
-    if (req.params[0] === '/') {
-        filePath = 'README.md';
+}
+
+// Sitemap route
+app.get('/sitemap.xml', async (req, res) => {
+    try {
+        const files = await fetchRepoTree();
+        const baseUrl = 'https://how.to.minoa.cat';
+        
+        let sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+        
+        // Add homepage
+        sitemap += `  <url>\n    <loc>${baseUrl}/</loc>\n    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>1.0</priority>\n  </url>\n`;
+        
+        // Add all markdown files
+        files.forEach(file => {
+            const urlPath = file.path.replace('.md', '').replace('README', '');
+            const cleanPath = urlPath.endsWith('/') ? urlPath.slice(0, -1) : urlPath;
+            const url = cleanPath ? `${baseUrl}/${cleanPath}` : `${baseUrl}/`;
+            
+            // Skip duplicate homepage entries
+            if (cleanPath !== '' && cleanPath !== 'README') {
+                sitemap += `  <url>\n    <loc>${url}</loc>\n    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+            }
+        });
+        
+        sitemap += `</urlset>`;
+        
+        res.set('Content-Type', 'application/xml');
+        res.send(sitemap);
+    } catch (error) {
+        console.error('Error generating sitemap:', error.message);
+        res.status(500).send('Error generating sitemap');
     }
-    
+});
+
+// Main route
+app.get('*', async (req, res) => {
+    let filePath = (req.params[0] || '/').substring(1);
+    if (!filePath || filePath.endsWith('/')) {
+        filePath = (filePath || '') + 'README.md';
+    } else {
+        filePath += '.md';
+    }
+
     try {
         const markdownContent = await fetchMarkdownContent(filePath);
         const htmlContent = marked(markdownContent);
-        const firstLine = extractFirstLine(markdownContent);
-        
-        res.send(`
-            <html>
-            <head>
-            <script defer src="https://cloud.umami.is/script.js" data-website-id="1aa208b9-94f3-498b-9a80-170a4e5bf62e"></script>
-            <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "509a9fa178fb4b9081f3cf33e475fbab"}'></script><!-- End Cloudflare Web Analytics -->
-            <!-- 100% privacy-first analytics -->
-<script data-collect-dnt="true" async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
-<noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade"/></noscript>
-                <title>${filePath}</title>
-                <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400&display=swap" rel="stylesheet">
-                <style>
-                    body {
-                        background-color: ${darkBackground};
-                        color: ${textColor};
-                        font-family: ${font};
-                        text-shadow: 1px 1px 2px black;
-                        padding: 20px;
-                        opacity: 0;
-                        animation: fadeIn 0.5s forwards;
-                        animation-delay: 0.5s; /* Delay for the fade-in animation */
-                    }
-                    @keyframes fadeIn {
-                        from {
-                            transform: translateX(-20px);
-                            opacity: 0;
-                        }
-                        to {
-                            transform: translateX(0);
-                            opacity: 1;
-                        }
-                    }
-                    a {
-                        color: ${linkColor};
-                        text-decoration: none;
-                    }
-                    a:hover {
-                        text-decoration: underline;
-                    }
-                    pre {
-                        background-color: ${codeBackground};
-                        border-radius: 8px;
-                        padding: 15px; /* Increased padding */
-                        overflow: auto;
-                        font-family: 'Ubuntu Mono', monospace;
-                        position: relative;
-                        white-space: nowrap; /* Prevent text wrapping */
-                    }
-                    code {
-                        background-color: ${codeBackground};
-                        border-radius: 4px;
-                        padding: 2px 4px;
-                        font-family: 'Ubuntu Mono', monospace;
-                    }
-                </style>
-                <meta name="description" content="${firstLine}">
-                <meta property="og:title" content="${filePath.replace('.md', '')}">
-                <meta property="og:description" content="${firstLine}">
-                <meta property="og:image" content="/favicon.ico">
-                <meta property="og:url" content="http://localhost:${PORT}/${filePath.replace('.md', '')}">
-                <meta property="og:type" content="website">
-                <meta property="og:color" content="${linkColor}">
-            </head>
-            <body>
-                <div>${htmlContent}</div>
-                <br>
-            </body>
-            </html>
-        `);
+        const pageTitle = path.basename(filePath, '.md');
+        const description = extractDescription(markdownContent);
+
+        res.render('layout', {
+            title: pageTitle,
+            description,
+            content: htmlContent,
+            url: `${BASE_URL}${req.path}`,
+            faviconUrl,
+            githubRepo: GITHUB_REPO,
+            filePath
+        });
     } catch (error) {
-        console.error('Error fetching Markdown content:', error.message);
-        if (error.response && error.response.status === 404) {
-            return res.status(404).send('File not found');
+        const statusCode = error.response?.status === 404 ? 404 : 500;
+        
+        if (statusCode === 404) {
+            // Use the custom 404.html page
+            res.status(404).sendFile(path.join(__dirname, 'public/404.html'));
+        } else {
+            // For other errors, use the error template
+            const title = '500 - Server Error';
+            const message = 'An error occurred while fetching the content.';
+            const suggestion = 'Check the URL or return to the <a href="/">homepage</a>.';
+
+            res.status(500).render('layout', {
+                title,
+                description: 'An error occurred.',
+                content: await ejs.renderFile(path.join(__dirname, 'views/error.ejs'), { title, statusCode: 500, message, suggestion }),
+                url: `${BASE_URL}${req.path}`,
+                faviconUrl,
+                githubRepo: GITHUB_REPO,
+                filePath: ''
+            });
         }
-        res.status(500).send('Error fetching Markdown content.');
     }
 });
 
-// Function to extract the first line from Markdown content
-function extractFirstLine(markdown) {
-    const firstLine = markdown.split('\n')[0].replace(/(^#+\s+|[\*\_\[\]\(\)])/g, '').trim();
-    return firstLine;
-}
-
-// Start the server
-app.listen(PORT, () => {
+// Start the server with explicit IPv4 binding
+app.listen(PORT, '127.0.0.1', () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+module.exports = app; // For Vercel

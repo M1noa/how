@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="<%= title %> | how.to.minoa.cat">
+    <meta name="description" content="<%= description %>">
+    <meta name="author" content="Minoa">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook / Discord -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= url %>">
+    <meta property="og:title" content="<%= title %> | how.to.minoa.cat">
+    <meta property="og:description" content="<%= description %>">
+    <meta property="og:image" content="<%= faviconUrl %>">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<%= url %>">
+    <meta property="twitter:title" content="<%= title %> | how.to.minoa.cat">
+    <meta property="twitter:description" content="<%= description %>">
+    <meta property="twitter:image" content="<%= faviconUrl %>">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#ffc0cb">
+    
+    <title><%= title %> | how.to.minoa.cat</title>
+    
+    <link rel="icon" type="image/webp" href="<%= faviconUrl %>">
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- Code highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    
+    <!-- Custom scripts -->
+    <script src="/script.js" defer></script>
+    <script src="/fmhy-guard.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-title-section">
+                <h1 class="site-title" onclick="window.location.href='/';" style="cursor: pointer;">how.to.minoa.cat</h1>
+            </div>
+            <nav class="header-nav">
+                <a href="https://github.com/M1noa/how" class="nav-link" id="nav-files">GitHub</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <%- content %>
+    </main>
+
+    <footer>
+        <p>Made with ♥ by <a href="https://github.com/<%= githubRepo %>" target="_blank">Minoa</a></p>
+    </footer>
+
+    <script>
+        // Initialize syntax highlighting
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.querySelectorAll('pre code').forEach((block) => {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+</body>
+</html>

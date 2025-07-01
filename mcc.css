@@ -1,0 +1,1031 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+80s+Fade&display=swap');
+
+/* Base theme variables */
+:root {
+    --background: #000000;
+    --text: rgba(255, 192, 203, 0.95); /* Increased opacity */
+    --text-muted: rgba(255, 192, 203, 0.7); /* Increased opacity */
+    --text-bright: rgb(255, 220, 225); /* Brighter, less transparent */
+    --gradient-start: rgba(255, 192, 203, 0.3); /* Slightly more opaque */
+    --gradient-end: rgba(255, 182, 193, 0.3); /* Slightly more opaque */
+    --card-bg: rgba(255, 192, 203, 0.15); /* Slightly more opaque */
+    --card-hover: rgba(255, 192, 203, 0.22); /* Slightly more opaque */
+    --border: rgba(255, 192, 203, 0.4); /* Increased opacity */
+    --hover-border: rgba(255, 192, 203, 0.6); /* Increased opacity */
+    --input-bg: rgba(255, 192, 203, 0.12); /* For search/select */
+    --input-border: rgba(255, 192, 203, 0.4);
+    --input-focus-border: rgba(255, 192, 203, 0.7);
+    --input-placeholder: rgba(255, 192, 203, 0.6);
+    --button-bg: rgba(255, 192, 203, 0.25); /* More opaque */
+    --button-hover: rgba(255, 192, 203, 0.35); /* More opaque */
+    --button-primary-bg: #ff8fab; /* A more solid pink for primary */
+    --button-primary-hover: #ff6b97;
+    --button-primary-text: #000000;
+    
+    /* Adjusted Warning Button Colors */
+    --button-warning-bg: rgba(255, 100, 100, 0.15); /* Light red tint */
+    --button-warning-hover-bg: rgba(255, 100, 100, 0.25); /* Slightly darker tint on hover */
+    --button-warning-border: rgba(255, 100, 100, 0.6); /* More visible red border */
+    --button-warning-text: var(--text-bright); /* Bright text for contrast */
+
+    --button-secondary-bg: rgba(255, 192, 203, 0.18);
+    --button-secondary-hover: rgba(255, 192, 203, 0.28);
+    --button-secondary-border: rgba(255, 192, 203, 0.45);
+    --highlight-bg: rgba(255, 192, 203, 0.4);
+    --highlight-text: #ffffff;
+    --scrollbar-bg: rgba(255, 192, 203, 0.1);
+    --scrollbar-thumb: rgba(255, 192, 203, 0.3);
+    --scrollbar-thumb-hover: rgba(255, 192, 203, 0.4);
+    --link-color: #ffadc4; /* Brighter link */
+    --link-hover: #ffc7d9;
+    --status-green: rgba(100, 255, 150, 0.9);
+    --status-yellow: rgba(250, 250, 160, 0.9);
+    --status-red: rgba(255, 100, 100, 0.9);
+    --header-glow-from: rgba(255, 105, 180, 0.8); /* More vibrant pink for header glow */
+    --header-glow-to: rgba(255, 20, 147, 0.95);   /* Deep pink */
+    --card-internal-border: rgba(255, 192, 203, 0.3); /* More visible internal border */
+    
+    /* Adjusted Client Note and Version Tag Colors */
+    --client-note-bg: rgba(255, 100, 100, 0.08); /* Subtle red tint for warning notes */
+    --client-note-border: rgba(255, 100, 100, 0.4); /* Stronger red border for warning notes */
+    --client-note-text: var(--text-bright); /* Ensure text is bright */
+
+    /* Custom dropdown specific variables */
+    --dropdown-bg: rgba(0, 0, 0, 0.9); /* Darker, slightly transparent background for the dropdown list */
+    --dropdown-option-bg: rgba(255, 192, 203, 0.08); /* Subtle pink for options */
+    --dropdown-option-hover-bg: rgba(255, 192, 203, 0.2); /* More visible pink on hover */
+    --dropdown-option-selected-bg: rgba(255, 192, 203, 0.3); /* Even more visible for selected */
+    --dropdown-border: rgba(255, 192, 203, 0.5); /* Stronger border for dropdown list */
+
+    /* Version tag (native select) variables */
+    --version-tag-bg: rgba(255, 192, 203, 0.1);
+    --version-tag-border: rgba(255, 192, 203, 0.3);
+    --version-tag-text: var(--text-muted);
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 3px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+/* Selection highlight */
+::selection {
+    background: var(--highlight-bg);
+    color: var(--highlight-text);
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    font-family: 'Ubuntu Mono', monospace;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-bright);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+.site-header { /* This class is used in sylph.css for general site title, adapting for our header */
+    font-family: 'Rubik 80s Fade', cursive;
+    font-size: 3.2rem;
+    margin: 1rem 0;
+    text-align: center;
+    color: var(--text-bright); /* Will use the brighter, less transparent version */
+    animation: header-glow 2s ease-in-out infinite alternate; /* Changed animation name */
+    cursor: default;
+}
+
+.site-header:hover { /* Applied to .header h1 instead */
+    /* text-shadow: 0 0 20px var(--header-glow-to),
+                 0 0 40px var(--header-glow-to); */
+}
+
+@keyframes glint {
+    0%, 100% {
+        text-shadow: none;
+    }
+    80% {
+        text-shadow: none;
+    }
+    85% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px var(--text);
+    }
+    90% {
+        text-shadow: none;
+    }
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+a:hover {
+    color: var(--link-hover);
+}
+
+a::after { /* General link underline effect */
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--link-hover);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+}
+
+/* mcc but kept specific overrides/additions */
+.header {
+    background-color: var(--card-bg);
+    color: var(--text-bright);
+    padding: 1em 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.header-title-section {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5em;
+}
+
+.site-title {
+    font-family: 'Rubik 80s Fade', cursive;
+    font-size: 1.8rem;
+    color: var(--text);
+    margin: 0;
+    cursor: pointer;
+    animation: glint 8s linear infinite;
+}
+
+.site-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.header-nav {
+    display: flex;
+    gap: 1.5em;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.5em 1em;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.2s ease;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(0.8);
+}
+
+.nav-link.active {
+    color: var(--text-bright);
+}
+
+.nav-link.active::after {
+    transform: scaleX(1);
+    background-color: var(--text-bright);
+}
+
+/* File Browser Styles */
+.files-container {
+    max-width: 1200px;
+    margin: 2em auto; /* Add top margin */
+    padding: 0 1.5em;
+}
+
+.path-bar {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1em 1.5em;
+    margin-bottom: 1.5em;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.path-label {
+    color: var(--text-muted);
+    margin-right: 0.5em;
+}
+
+.current-path {
+    color: var(--text-bright);
+}
+
+.files-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
+    gap: 1em;
+    max-width: 1200px; /* Match container width */
+    margin: 0 auto; /* Center the grid */
+}
+
+.file-item {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.file-item:hover {
+    border-color: var(--hover-border);
+    transform: translateY(-2px);
+    background-color: var(--card-hover);
+}
+
+/* Mirror button styling for file items */
+.file-item .mirror-button {
+    background-color: rgba(250, 235, 100, 0.2);
+    border: 1px solid rgba(250, 235, 100, 0.4);
+    color: #fff7d4;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    font-size: 0.8em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.file-item .mirror-button:hover {
+    background-color: rgba(250, 235, 100, 0.3);
+    border-color: rgba(250, 235, 100, 0.6);
+    transform: translateY(-1px);
+}
+
+.file-icon {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.file-name {
+    color: var(--text-bright);
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    word-break: break-all;
+}
+
+.file-meta {
+    color: var(--text-muted);
+    font-size: 0.85em;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+}
+
+.file-date {
+    white-space: nowrap;
+}
+
+.error-message {
+    color: var(--status-red);
+    text-align: center;
+    padding: 2em;
+    grid-column: 1 / -1;
+}
+
+.header h1 { /* Targeting the h1 within our specific .header class */
+    font-family: 'Rubik 80s Fade', cursive;
+    font-size: 2.8em;
+    margin: 0;
+    color: var(--text); /* Changed to standard text color */
+    animation: header-glow 2s ease-in-out infinite alternate; /* Uses updated animation */
+    transition: text-shadow 0.3s ease-in-out; /* Smooth transition for glow */
+}
+.header h1:hover {
+     /* Stronger glow effect on hover */
+     text-shadow: 0 0 25px var(--header-glow-to),
+                  0 0 50px var(--header-glow-to),
+                  0 0 75px rgba(255, 20, 147, 0.5); /* Added a wider, softer layer */
+}
+
+
+.controls-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5em 2em;
+    margin: 0 auto 2em auto; /* Center and add bottom margin */
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-top: none; /* Remove top border as header has bottom border */
+    border-radius: 0 0 16px 16px; /* Round bottom corners */
+    gap: 2em;
+    width: 100%; /* Full width to align with header */
+    max-width: 1200px; /* Maintain max-width consistency */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+    /* Sticky properties */
+    position: sticky;
+    top: 0; /* Stick to the top of the viewport */
+    z-index: 100; /* Ensure it's above other content like client-grid */
+}
+
+.search-bar {
+    flex: 2;
+}
+
+/* Styling for the search input */
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 0.8em 1em;
+    background-color: var(--input-bg);
+    color: var(--text-bright);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    outline: none;
+    transition: all 0.3s ease;
+    /* No appearance: none for text input, it doesn't have native dropdowns */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+
+/* Hide the native select visually, but keep it for functionality/accessibility */
+.category-filter select {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* Styling for the custom dropdown trigger */
+.custom-select-trigger {
+    width: 100%;
+    padding: 0.8em 1em;
+    background-color: var(--input-bg);
+    color: var(--text-bright);
+    border: 1px solid var(--input-border);
+    border-radius: 8px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 1em;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.custom-select-trigger:hover {
+    border-color: var(--hover-border);
+    background-color: var(--card-hover);
+}
+
+.custom-select-trigger.active,
+.custom-select-trigger:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px var(--input-focus-border), inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.custom-select-trigger .arrow {
+    width: 1em;
+    height: 1em;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffc0cb' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    transition: transform 0.3s ease;
+}
+
+.custom-select-trigger.active .arrow {
+    transform: rotate(180deg);
+}
+
+/* Styling for the custom dropdown options list */
+.custom-select-options {
+    position: absolute;
+    top: 100%; /* Position below the trigger */
+    left: 0;
+    right: 0;
+    max-height: 250px; /* Limit height and enable scrolling */
+    overflow-y: auto;
+    background-color: var(--dropdown-bg); /* Darker, transparent background */
+    border: 1px solid var(--dropdown-border);
+    border-top: none; /* No top border, connects to trigger */
+    border-radius: 0 0 8px 8px; /* Round bottom corners */
+    z-index: 999; /* Ensure it's above other content */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(8px); /* More blur for the dropdown list */
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Styling for individual custom options */
+.custom-option {
+    padding: 0.8em 1em;
+    color: var(--text-bright);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    background-color: var(--dropdown-option-bg); /* Subtle pink for options */
+}
+
+.custom-option:hover {
+    background-color: var(--dropdown-option-hover-bg); /* More visible pink on hover */
+}
+
+.custom-option.selected {
+    background-color: var(--dropdown-option-selected-bg); /* Distinct background for selected option */
+    color: var(--text-bright);
+    font-weight: 700;
+}
+
+/* Custom scrollbar for the custom dropdown list */
+.custom-select-options::-webkit-scrollbar {
+    width: 10px;
+}
+.custom-select-options::-webkit-scrollbar-track {
+    background: var(--scrollbar-bg);
+    border-radius: 6px;
+}
+.custom-select-options::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 6px;
+    border: 2px solid var(--dropdown-bg); /* Border color matches dropdown background */
+}
+.custom-select-options::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+}
+
+
+/* Version select styling */
+.version-select {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 0.25em;
+}
+
+.version-select select {
+    width: 100%;
+    padding: 0.3em 2em 0.3em 0.7em;
+    font-size: 0.85em;
+    background-color: var(--version-tag-bg);
+    border: 1px solid var(--version-tag-border);
+    color: var(--version-tag-text);
+    border-radius: 6px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffc0cb' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.4em top 50%;
+    background-size: 0.8em auto;
+    cursor: pointer;
+    line-height: 1.3;
+    text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+.version-select select:hover {
+    background-color: rgba(255, 192, 203, 0.15); /* Slightly darker on hover */
+    border-color: rgba(255, 192, 203, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Force option background/color for native select (still not guaranteed cross-browser for open state) */
+/* This rule is for native select options, which are hard to style consistently */
+.category-filter select option,
+.version-select select option {
+    background-color: rgba(0, 0, 0, 0.9) !important; /* Darker background */
+    color: var(--text-bright) !important; /* Bright text */
+}
+
+.search-bar input[type="text"]:focus {
+    border-color: var(--input-focus-border);
+    background-color: var(--card-hover);
+    box-shadow: 0 0 0 2px var(--input-focus-border), inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* Version select focus - should be focusable if it's a dropdown */
+.version-select select:focus {
+    border-color: var(--input-focus-border);
+    box-shadow: 0 0 0 2px var(--input-focus-border), inset 0 1px 3px rgba(0,0,0,0.3);
+    outline: none;
+}
+
+
+.search-bar input[type="text"]::placeholder {
+    color: var(--input-placeholder); /* Use new variable */
+}
+
+/* Button layout improvements */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75em;
+}
+
+.download-section {
+    display: flex;
+    gap: 0.75em;
+    align-items: center;
+}
+
+.main-buttons {
+    display: flex;
+    gap: 0.5em;
+}
+
+.download-button {
+    flex: 2;
+}
+
+.mirror-button,
+.original-button {
+    flex: 1;
+    font-size: 0.85em;
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 2em;
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.footer .dmca-link {
+    background-color: rgba(255, 100, 100, 0.2);
+    border-color: rgba(255, 100, 100, 0.4);
+    color: #ffd4d4;
+}
+
+.footer .dmca-link:hover {
+    background-color: rgba(255, 100, 100, 0.3);
+    border-color: rgba(255, 100, 100, 0.6);
+}
+
+.api-link {
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.8em 1.5em;
+    background-color: var(--button-secondary-bg); /* Use secondary button style */
+    border: 1px solid var(--button-secondary-border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: var(--text-bright); /* Ensure text is readable */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow */
+}
+
+.api-link:hover {
+    background-color: var(--button-secondary-hover);
+    border-color: var(--hover-border);
+    transform: translateY(-2px); /* Consistent hover effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+
+.client-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); /* Increased card width */
+    gap: 1.5em;
+    padding: 1.5em;
+    margin: 0 1.5em 1.5em 1.5em;
+}
+
+.client-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px; /* sylph.css .feature-card like rounding */
+    padding: 1.5rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Initial subtle shadow */
+}
+
+.client-card:hover {
+    border-color: var(--hover-border);
+    transform: translateY(-5px);
+    background: var(--card-hover);
+    box-shadow: 0 10px 30px rgba(255, 192, 203, 0.15); /* More pronounced shadow on hover */
+}
+
+.client-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.25rem;
+    color: var(--text-bright);
+    padding-right: 2rem; /* Space for tag */
+}
+
+.client-card .author {
+    font-size: 0.9em;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    border-left: 2px solid rgba(255, 192, 203, 0.2);
+    font-style: italic;
+}
+
+.client-card p { /* General paragraph text in card */
+    color: var(--text); /* Use updated --text */
+    margin-bottom: 0.5em;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.client-card .info-section p { /* Labels like "Version:", "Minecraft:" */
+    color: var(--text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.client-card .info-section p span { /* Values like Minecraft version */
+    color: var(--text);
+    font-weight: 700;
+}
+
+.client-card .info-section p .version-select {
+    display: block;
+    width: 100%;
+    margin: 0.25em 0;
+}
+
+/* Conditional styling for info-section border */
+.client-card .info-section {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--card-internal-border); /* This border should always be present if info-section exists */
+}
+
+/* Remove border if info-section is effectively empty (e.g., only h3 and author) - REMOVED THIS RULE */
+/* The info-section will now always contain h3 and author, so the border is always desired. */
+
+
+.client-card .tag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--highlight-bg);
+    color: var(--highlight-text);
+    padding: 0.4em 0.8em;
+    border-radius: 20px; /* sylph.css .card-badge like rounding */
+    font-size: 0.8rem;
+    border: 1px solid var(--border);
+}
+
+.client-card .buttons {
+    margin-top: auto;
+    display: flex;
+    gap: 0.75em;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    border-top: 1px solid var(--card-internal-border); /* Use new variable */
+}
+
+.client-card .info-section {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: none;
+}
+
+.client-card .buttons button,
+.client-card .buttons a {
+    flex: 1 1 auto;
+    padding: 0.7em 0.9em; /* Slightly adjusted padding */
+    border-radius: 6px; /* Slightly less rounded */
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: 700; /* Bolder button text */
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    border: 1px solid transparent; /* Base transparent border */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Subtle shadow for depth */
+}
+
+.client-card .buttons button:hover,
+.client-card .buttons a:hover {
+    background-color: var(--button-hover);
+    border-color: var(--hover-border);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3); /* More pronounced shadow on hover */
+}
+
+/* Specific button colors if desired, overriding the generic one */
+.client-card .buttons .download-button { /* Primary button */
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-color: var(--button-primary-bg);
+}
+.client-card .buttons .download-button:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+/* Warning state for download button */
+.client-card.has-warning .buttons .download-button {
+    background-color: var(--button-warning-bg);
+    color: var(--button-warning-text);
+    border-color: var(--button-warning-border); /* Use new warning border */
+}
+.client-card.has-warning .buttons .download-button:hover {
+    background-color: var(--button-warning-hover-bg);
+    border-color: var(--button-warning-border); /* Keep same border on hover */
+}
+
+
+.client-card .buttons .mirror-button,
+.client-card .buttons .original-button { /* Secondary buttons */
+    background-color: var(--button-secondary-bg);
+    color: var(--text);
+    border: 1px solid var(--button-secondary-border);
+}
+.client-card .buttons .mirror-button:hover,
+.client-card .buttons .original-button:hover {
+    background-color: var(--button-secondary-hover);
+    border-color: var(--hover-border);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.25);
+}
+
+/* Maintain distinct colors for mirror/original if desired, applied on top of secondary */
+.client-card .buttons .mirror-button {
+     background-color: rgba(250, 235, 100, 0.2);
+     border-color: rgba(250, 235, 100, 0.4);
+     color: #fff7d4;
+}
+.client-card .buttons .mirror-button:hover {
+     background-color: rgba(250, 235, 100, 0.3);
+     border-color: rgba(250, 235, 100, 0.6);
+}
+
+.client-card .buttons .original-button {
+     background-color: rgba(100, 220, 250, 0.2);
+     border-color: rgba(100, 220, 250, 0.4);
+     color: #d4f7ff;
+}
+.client-card .buttons .original-button:hover {
+     background-color: rgba(100, 220, 250, 0.3);
+     border-color: rgba(100, 220, 250, 0.6);
+}
+
+
+/* Tooltip styles */
+/* The tooltip itself will be appended to the body by JS */
+.tooltip {
+    display: none; /* Hidden by default, JS will show/hide */
+    width: max-content;
+    max-width: 280px; /* Slightly wider for more text */
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #fc6f9e; /* Keep the distinct tooltip text color */
+    text-align: left;
+    border-radius: 12px;
+    padding: 1em 1.2em;
+    position: absolute; /* Changed to absolute for dynamic positioning relative to body */
+    z-index: 1000;
+    font-size: 0.9em;
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    pointer-events: none; /* Allows mouse events to pass through to elements below */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: opacity 0.2s ease-in-out; /* Smooth fade in/out */
+    opacity: 0; /* Start hidden for transition */
+}
+
+.tooltip.show {
+    display: block;
+    opacity: 1;
+}
+
+.client-card {
+    position: relative;
+}
+
+/* Revert header color change for warning cards, it's handled by button now */
+.client-card.has-warning h3 {
+    color: var(--text-bright); /* Default bright color for h3 */
+}
+
+.client-card.has-warning {
+    border-color: var(--button-warning-border); /* Use the new warning border color */
+    background-color: rgba(255, 100, 100, 0.05); /* Subtle red tint for the card background */
+}
+.client-card.has-warning:hover {
+    border-color: var(--button-warning-border); /* Keep warning border on hover */
+    background-color: rgba(255, 100, 100, 0.1); /* Slightly darker tint on hover */
+}
+
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 0.75em 0;
+}
+
+.category-tag {
+    background-color: rgba(255, 192, 203, 0.15);
+    border: 1px solid rgba(255, 192, 203, 0.3);
+    color: var(--text);
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+.client-note {
+    margin-top: 0.75em;
+    font-size: 0.85em;
+    color: var(--text-muted);
+    line-height: 1.4;
+    word-wrap: break-word;
+    padding: 0.75em;
+    background-color: rgba(255, 192, 203, 0.1);
+    border: 1px solid rgba(255, 192, 203, 0.2);
+    border-radius: 6px;
+    margin-bottom: 1em;
+}
+
+/* Responsive adjustments from main.html, integrated */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1em;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .header-title-section {
+        justify-content: center;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .site-title {
+        font-size: 1.6rem;
+    }
+    .files-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns for tablets */
+    }
+    .controls-container {
+        flex-direction: column;
+        gap: 1em;
+        margin: 1em; /* Smaller margin */
+        padding: 1em;
+        border-radius: 12px; /* Adjust border radius for smaller screens */
+        border-top: 1px solid var(--border); /* Re-add top border if it's not directly below header */
+    }
+    .search-bar input[type="text"],
+    .category-filter { /* Target the container for custom dropdown */
+        width: 100%;
+    }
+    .client-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Slightly smaller min for cards */
+        padding: 1em;
+        margin: 0 1em 1em 1em;
+    }
+    .header h1 {
+        font-size: 2.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 0.8em;
+    }
+
+    .site-title {
+        font-size: 1.4rem;
+    }
+
+    .site-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .nav-link {
+        padding: 0.4em 0.8em;
+        font-size: 0.85rem;
+    }
+    .files-grid {
+        grid-template-columns: 1fr; /* Single column for mobile */
+    }
+    .client-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+    .header h1 {
+        font-size: 1.8em;
+    }
+    .controls-container {
+        margin: 0.5em;
+        padding: 0.8em;
+        border-radius: 10px;
+    }
+     .client-grid {
+        padding: 0.5em;
+        margin: 0 0.5em 0.5em 0.5em;
+    }
+    .client-card {
+        padding: 1rem;
+    }
+    .client-card h3 {
+        font-size: 1.3em;
+    }
+}
+
+/* Fallback for body */
+body {
+    background-color: #000000;
+    color: rgba(255, 192, 203, 0.85);
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - how.to.minoa.cat</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="404 Not Found - how.to.minoa.cat">
+    <meta name="description" content="Oops! This page has been eaten by a hungry cat. Let's help you get back home.">
+    
+    <!-- Theme -->
+    <meta name="theme-color" content="#ff69b4">
+    
+    <link rel="stylesheet" href="/style.css">
+        <style>
+    :root {
+        --background: #000000;
+        --text: rgba(255, 192, 203, 0.85);
+        --text-muted: rgba(255, 192, 203, 0.5);
+        --text-bright: rgba(255, 192, 203, 0.95);
+        --card-bg: rgba(255, 192, 203, 0.1);
+        --card-hover: rgba(255, 192, 203, 0.15);
+        --border: rgba(255, 192, 203, 0.2);
+        --hover-border: rgba(255, 192, 203, 0.4);
+        --button-bg: rgba(255, 192, 203, 0.15);
+        --button-hover: rgba(255, 192, 203, 0.25);
+        --highlight-bg: rgba(255, 192, 203, 0.3);
+        --highlight-text: rgba(255, 255, 255, 0.95);
+        --link-color: #ff9eb5;
+        --link-hover: #ffb8c9;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: var(--background);
+        color: var(--text);
+        font-family: 'Ubuntu Mono', monospace;
+        line-height: 1.6;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        transition: opacity 1s ease;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .error-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        max-width: 600px;
+        width: 100%;
+        animation: slideIn 0.5s ease;
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h1 {
+        font-family: 'Rubik 80s Fade', cursive;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        color: var(--text-bright);
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow: 0 0 5px var(--text-muted),
+                         0 0 10px var(--text-muted);
+        }
+        to {
+            text-shadow: 0 0 10px var(--text),
+                         0 0 20px var(--text);
+        }
+    }
+
+    .error-message {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--text-muted);
+    }
+
+    .home-button {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background: var(--button-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        color: var(--text);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 1.1rem;
+    }
+
+    .home-button:hover {
+        background: var(--button-hover);
+        border-color: var(--hover-border);
+        transform: translateY(-2px);
+    }
+
+    .footer {
+        background: var(--card-bg);
+        border-top: 1px solid var(--border);
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .footer a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .footer a:hover {
+        color: var(--link-hover);
+    }
+
+    .cat-ascii {
+        font-family: monospace;
+        white-space: pre;
+        color: var(--text-bright);
+        margin: 2rem 0;
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 1rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        .footer-links {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .cat-ascii {
+            font-size: 12px;
+        }
+    }
+    </style>
+    <script defer src="https://analytics.minoa.cat/script.js" data-website-id="fcaf3205-63ec-4918-bee3-aa42283926ef"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="error-card">
+            <h1>404</h1>
+            <div class="cat-ascii">
+  /\___/\
+ (  o o  )
+ (  =^=  ) 
+  (--m-m-)</div>
+            <p class="error-message">Oops! This page has been eaten by a hungry cat.</p>
+            <a href="/" class="home-button">Return Home</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>

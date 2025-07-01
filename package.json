@@ -1,18 +1,38 @@
 {
   "name": "readmehow",
-  "version": "1.0.0",
-  "description": "",
+  "version": "2.0.0",
+  "description": "A modern, responsive dynamic README viewer that serves GitHub markdown files as beautiful HTML pages with enhanced UI/UX",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "readme",
+    "markdown",
+    "github",
+    "viewer",
+    "documentation",
+    "express",
+    "responsive",
+    "modern"
+  ],
+  "author": "ReadmeHow",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/M1noa/how.git"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
     "axios": "^1.7.3",
     "cheerio": "^1.0.0-rc.12",
     "express": "^4.19.2",
-    "marked": "^14.0.0"
+    "marked": "^14.0.0",
+    "ejs": "^3.1.10",
+    "highlight.js": "^11.9.0"
   }
 }

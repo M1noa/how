@@ -1,0 +1,11 @@
+<div class="breadcrumb">
+    <a href="/">Home</a>
+    <% if (filePath !== 'README.md') { %>
+        <span>›</span>
+        <span><%= filePath.replace('.md', '') %></span>
+    <% } %>
+</div>
+
+<article class="markdown-body">
+    <%- content %>
+</article>
