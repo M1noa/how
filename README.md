@@ -78,6 +78,7 @@
 - 🤖 [AI Detector Bypass](/LLM-JB/AntiAI-Bypass)
 - 🎨 [Trae Jailbreak](/LLM-JB/Trae-JB)
 - 🔒 [System Prompt Jailbreaks](/LLM-JB/System-Prompt-JB)
+- 🤓 [System Prompt Genorator](/LLM-JB/System-Prompt-Maker)
 - 🗂️ **[More](https://github.com/elder-plinius/L1B3RT45/tree/main)**
 
 ### 🔒 **VPNs**
