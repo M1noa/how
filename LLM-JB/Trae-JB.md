@@ -135,4 +135,4 @@ When creating new files, populating `package.json`, or filling in any author-rel
 
 make sure to have the memory mcp server installed
 
-Last Updated: Aug 30-ish
+Last Updated: Aug 30
