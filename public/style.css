@@ -270,14 +270,52 @@ main {
     font-family: 'Ubuntu', sans-serif;
     font-weight: 600;
     letter-spacing: -0.025em;
+    position: relative;
+}
 
+.markdown-content h1:hover .header-anchor,
+.markdown-content h2:hover .header-anchor,
+.markdown-content h3:hover .header-anchor,
+.markdown-content h4:hover .header-anchor,
+.markdown-content h5:hover .header-anchor,
+.markdown-content h6:hover .header-anchor {
+    opacity: 1;
+}
+
+.header-anchor {
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8em;
+    font-weight: normal;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    background: transparent;
+    border: none;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.header-anchor:hover {
+    color: var(--link-hover);
+    background-color: var(--card-bg);
+}
+
+.header-anchor.copied {
+    color: var(--status-green);
 }
 
 .markdown-content h1 {
-    font-size: 2.25rem;
+    font-size: 3rem;
     font-weight: 700;
     margin-top: 5rem;
     margin-bottom: 2rem;
+    scroll-margin-top: 2rem;
 }
 
 .markdown-content h1:first-child {
@@ -285,12 +323,13 @@ main {
 }
 
 .markdown-content h2 {
-    font-size: 1.875rem;
+    font-size: 2.5rem;
     font-weight: 600;
     border-bottom: 1px solid var(--border);
     padding-bottom: 0.5rem;
     margin-top: 5rem;
     margin-bottom: 2rem;
+    scroll-margin-top: 2rem;
 }
 
 .markdown-content h2:first-child {
@@ -586,12 +625,12 @@ footer a:hover {
     }
     
     .markdown-content h1 {
-        font-size: 1.875rem;
+        font-size: 2.5rem;
         margin: 0 0 1.5rem 0;
     }
     
     .markdown-content h2 {
-        font-size: 1.5rem;
+        font-size: 2rem;
         margin: 2.5rem 0 1.25rem 0;
     }
     
@@ -658,6 +697,11 @@ footer a:hover {
         padding: 1rem;
         border-radius: 8px;
     }
+    
+    .header-anchor {
+        left: -1.5rem;
+        font-size: 0.75em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -683,12 +727,12 @@ footer a:hover {
     }
     
     .markdown-content h1 {
-        font-size: 1.75rem;
+        font-size: 2.25rem;
         margin: 0 0 1.25rem 0;
     }
     
     .markdown-content h2 {
-        font-size: 1.375rem;
+        font-size: 1.875rem;
         margin: 2rem 0 1rem 0;
     }
     
@@ -739,5 +783,10 @@ footer a:hover {
     
     footer {
         padding: 1.5rem 1rem;
+    }
+    
+    .header-anchor {
+        left: -1.25rem;
+        font-size: 0.7em;
     }
 }
