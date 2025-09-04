@@ -1,4 +1,5 @@
 # PC Deals Tracker
+**THIS HASNT BEEN UPDATED IN ALMOST A YEAR**
 
 ## STORMCRAFT SCORPIO 
 [View on Newegg](https://www.newegg.com/stormcraft-gaming-desktop-pc-geforce-rtx-5060-intel-core-i5-14400f-32gb-ddr4-1tb-nvme-ssd-sc1440fcb-560n1/p/N82E16883420028)

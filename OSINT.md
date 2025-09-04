@@ -1,52 +1,89 @@
-# 🔍 OSINT (Open Source Intelligence) Resources
+# OSINT (Open Source Intelligence) Resources
 
-### 👤 People Search & Records
-- [Family Tree Now](https://www.familytreenow.com/) - *10/10 | Free | Comprehensive family records*
-- [Been Verified](https://www.beenverified.com/people/) - *3/10 | Paid | REALLY Good data but expensive subscription require and weird advertising and sales techniques like fake loading*
-- [That's Them](https://thatsthem.com/) - *8.5/10 | Free + Paid options | Detailed people search but not ass good as Family Tree No*
-- [US Public Records (MyHeritage)](https://www.myheritage.com/research/collection-10220/us-public-records-index) - *6/10 | Paid | Extensive but expensive*
-- [Official USA](https://www.officialusa.com/) - *7.5/10 | Free | Basic info, some results paywalled*
-- [USPhonebook](https://www.usphonebook.com/) - *8/10 | Free | Good phone lookup service*
-- [SpyDialer](https://spydialer.com/) - *8.9/10 | Free + Paid | Excellent phone intel*
-- [Arrests.org](https://arrests.org/) - *9/10 | Free | Comprehensive arrest records*
-- [Judy Records](https://www.judyrecords.com/) - *9.5/10 | Free | Extensive court records*
-- [Phonebook.cz](https://phonebook.cz/) - *8/10 | Free | International....*
-- [Clustrmaps](https://clustrmaps.com/) - *6.8/10 | Free | Search adresses n names*
-- [Phone Validator](https://www.phonevalidator.com/) - *9/10 | Free | Often has data SpyDialer doesnt*
+A comprehensive collection of tools and resources for open source intelligence gathering. These tools are for educational and legitimate research purposes only.
 
-### 📧 Email & Username Tools
-- [Check Usernames](https://checkusernames.com/) - *8.5/10 | Free | Username search across platforms*
-- [HIBP](https://haveibeenpwned.com/) - *10/10 | Free | A classic for finding what breaches an email is in*
-- [Epieos](https://epieos.com/) - *7.7/10 | Freeish | Advanced email (and phone) OSINT*
+## People Search & Records
 
-### 🌐 Network & Domain Analysis
-- [Shodan](https://www.shodan.io/) - *9.5/10 | Free + Paid | Industry standard for IoT/server recon*
-- [GreyNoise](https://viz.greynoise.io/) - *8.5/10 | Free + Paid | Good IP intel*
-- [WHOIS](https://www.whois.com/whois/) - *8/10 | Free | Basic but reliable domain info*
-- [IP Quality Score](https://www.ipqualityscore.com/vpn-ip-address-check) - *9/10 | Free + Paid | Excellent VPN detection*
-- [What Is My IP](https://whatismyipaddress.com/ip-lookup) - *7.5/10 | Free | Simple IP lookup*
-- [xResolver](https://xresolver.com/) - *8/10 | Free + Paid | Gaming IP resolver to search for xbox usernames n stuff*
+**Primary Resources**
+- [Family Tree Now](https://www.familytreenow.com/) - Comprehensive family records and genealogy data
+- [True People Search](https://www.truepeoplesearch.com/) - Extensive people search database
+- [Judy Records](https://www.judyrecords.com/) - Court records and legal documents
+- [Arrests.org](https://arrests.org/) - Arrest records and criminal history
+- [That's Them](https://thatsthem.com/) - People search with contact information
 
-### 📱 Social Media & Images
-- [Social Searcher](https://www.social-searcher.com/) - *7.5/10 | Free + Paid | Social media search*
-- [Osintgram](https://github.com/Datalux/Osintgram) - *9/10 | Free | Powerful Instagram OSINT tool*
-- [Find Pic Location](https://findpiclocation.com/) - *8/10 | Free | Image geolocation*
-- [GeoSpy](https://geospy.ai/) - *7.9/10 | Paid/Private | Location intelligence ai*
-- [PicTriev](http://www.pictriev.com/) - *7.5/10 | Free | Face gender analysis & comparison*
-- [FaceCheck ID](https://facecheck.id/) - *8.2/10 | Free | PimEyes alternative*
-- [PimEyes](https://pimeyes.com/en) - *7.4/10 | Free + Paid | Better than facecheck.id but has bad limits*
+**Phone & Contact Information**
+- [Phone Validator](https://www.phonevalidator.com/) - Phone number validation and carrier info
+- [SpyDialer](https://spydialer.com/) - Phone number lookup service
+- [USPhonebook](https://www.usphonebook.com/) - Phone directory search
+- [Phonebook.cz](https://phonebook.cz/) - International phone directory
 
-### 🔒 Security & Data Breach
-- [Canary Tokens](https://www.canarytokens.org/generate) - *9.5/10 | Free | Excellent tracking tokens*
-- [Psycho Coding](https://psychocoding.net/search) - *9/10 | Free | Amazing intelx alternative*
-- [Intel X](https://intelx.io/) - *7/10 | Free + Paid | Comprehensive search engine*
-- [Breach Directory](https://breachdirectory.org/) - *8.5/10 | Free + Paid | Data breach search*
-- [Dehashed](https://dehashed.com/) - *9.5/10 | Paid | Premium leak database*
-- [Doxbin](https://doxbin.net/) - *6/10 | Free | Dox's (Contains unverified data)*
+**Address & Location**
+- [Official USA](https://www.officialusa.com/) - Public records search
+- [Clustrmaps](https://clustrmaps.com/) - Address and name search
+- [US Public Records (MyHeritage)](https://www.myheritage.com/research/collection-10220/us-public-records-index) - Historical records
 
-### 📚 OSINT Collections & Resources
-- [OSINT Framework](https://osintframework.com/) - *10/10 | Free | Comprehensive tool collection*
-- [Awesome OSINT](https://github.com/jivoi/awesome-osint) - *9.5/10 | Free | Extensive resource list*
-- [OSINT4ALL](https://start.me/p/L1rEYQ/osint4all) - *9/10 | Free | Well-organized collection*
-- [Intel Techniques](https://inteltechniques.com/) - *9/10 | Free + Paid Training | Professional OSINT resources*
-- [SizOf Cat Data Leaks](https://sizeof.cat/post/data-leaks/) - *8.5/10 | Free | Good list of torrents for downloading databreaches*
+## Email & Username Intelligence
+
+- [EmailRep](https://emailrep.io/) - Email reputation and intelligence
+- [Check Usernames](https://checkusernames.com/) - Username availability across platforms
+- [Epieos](https://epieos.com/) - Advanced email and phone OSINT
+- [Hudson Rock](https://www.hudsonrock.com/email-search) - Email breach monitoring
+
+## Network & Domain Analysis
+
+**IP & Network Intelligence**
+- [Shodan](https://www.shodan.io/) - Internet-connected device search engine
+- [IP Quality Score](https://www.ipqualityscore.com/vpn-ip-address-check) - VPN and proxy detection
+- [GreyNoise](https://viz.greynoise.io/) - Internet background noise analysis
+- [What Is My IP](https://whatismyipaddress.com/ip-lookup) - IP geolocation and analysis
+- [xResolver](https://xresolver.com/) - Gaming platform IP resolver
+
+**Domain & Website Analysis**
+- [WHOIS](https://www.whois.com/whois/) - Domain registration information
+- [Netcraft](https://report.netcraft.com/report) - Website technology and hosting analysis
+
+## Social Media & Image Intelligence
+
+**Social Media Tools**
+- [Osintgram](https://github.com/Datalux/Osintgram) - Instagram OSINT framework
+- [Social Searcher](https://www.social-searcher.com/) - Social media content search
+- [X KeyScore](https://x.keysco.re/) - Twitter/X intelligence platform
+
+**Image Analysis**
+- [Find Pic Location](https://findpiclocation.com/) - Image geolocation analysis
+- [GeoSpy](https://geospy.ai/) - AI-powered location intelligence
+- [PicTriev](http://www.pictriev.com/) - Facial analysis and comparison
+
+## Security & Data Breach Intelligence
+
+**Breach Monitoring**
+- [Dehashed](https://dehashed.com/) - Premium data breach search
+- [Breach Directory](https://breachdirectory.org/) - Free breach database search
+- [Canary Tokens](https://www.canarytokens.org/generate#) - Tracking and monitoring tokens
+
+**Search Engines**
+- [Intel X](https://intelx.io/) - Comprehensive intelligence search
+- [Intel X Person Search](https://intelx.io/tools?tab=person) - People-focused search
+- [Psycho Coding](https://psychocoding.net/search) - Alternative intelligence search
+- [Search 0t Rocks](https://search.0t.rocks/) - Specialized search engine
+
+**Miscellaneous**
+- [Doxbin](https://doxbin.net/) - Public information database (unverified)
+- [CraxPro](https://craxpro.io/threads/free-dox-websites-dox-anyone.233856/) - OSINT discussion forum
+
+## Comprehensive OSINT Collections
+
+**Frameworks & Guides**
+- [OSINT Framework](https://osintframework.com/) - Comprehensive tool directory
+- [Awesome OSINT](https://github.com/jivoi/awesome-osint) - Curated list of OSINT resources
+- [OSINT4ALL](https://start.me/p/L1rEYQ/osint4all) - Organized collection of tools
+- [Intel Techniques](https://inteltechniques.com/) - Professional OSINT training and resources
+- [OSINT Rocks](https://osint.rocks/) - Community-driven resource collection
+- [Analyst Research Tools](https://analystresearchtools.com/) - Professional analysis tools
+
+**Specialized Resources**
+- [SizOf Cat](https://sizeof.cat/) - Data leak torrents and breach information
+
+---
+
+**Disclaimer**: These tools are provided for educational and legitimate research purposes only. Always respect privacy laws, terms of service, and ethical guidelines when conducting OSINT activities. Verify information through multiple sources before taking action based on OSINT findings.
