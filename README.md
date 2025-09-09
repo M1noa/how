@@ -1,6 +1,8 @@
 # Digital Resources Guide
 
-## Software
+---
+
+## Software </>
 
 ### Windows Applications
 - [AppDoze](https://appdoze.net) - Comprehensive Windows software collection
@@ -14,7 +16,9 @@
 - [HaxMac](https://haxmac.cc/) - Mac application repository
 - [cMacked](https://cmacked.com/) - Mac software collection
 
-## Gaming
+---
+
+## Gaming 🕹️
 
 - [Game Drive](https://gamedrive.org/) - Game repository with various titles
 - [FitGirl Repacks](https://fitgirl-repacks.site/) - Compressed game repacks, user-friendly interface
@@ -23,7 +27,9 @@
 - [SteamRIP](https://steamrip.com) - Steam game collection
 - [Steam Unlocked](https://steamunlocked.net) - Pre-installed games (note: slower speeds)
 
-## Movies, TV Shows & Anime
+---
+
+## Movies, TV Shows & Anime 🍿
 
 ### Streaming Platforms
 - [Popcorn Time](https://jfper.link/build/) ([GitHub](https://github.com/popcorn-official/popcorn-desktop)) - Cross-platform streaming client
@@ -45,7 +51,9 @@
 - [Anna's Archive](https://annas-archive.org/search) - Comprehensive digital library
 - [Z-Library](https://en.wikipedia.org/wiki/Z-Library#:~:text=URL,(Accessing%20link%20help)) - Academic and general book collection
 
-## File Hosting Services
+---
+
+## File Hosting 📁
 
 ### Long-term Storage
 - [Terabox](https://terabox.com) - 1TB per account, permanent storage
@@ -65,7 +73,9 @@
 
 **[More](https://gist.github.com/Bad3r/f7f91a4b4cdd15f467f095fddd5108a7)**
 
-## Media Hosting
+---
+
+## Media Hosting 📺
 
 ### Video Hosting
 - [Mycloud/Vidplay](https://vidplay.online/) - 20GB max, API support
@@ -75,7 +85,9 @@
 - [Pillowcase](https://pillowcase.su/) - 500MB max, clean interface, direct links
 - [Archive.org](https://archive.org) - Unlimited storage, direct links
 
-## Minecraft Resources
+---
+
+## Minecraft Resources ⛏
 
 - **[Capes & Banners](/MC-Banners)** - Custom cape and banner designs
 - [Blackspigot](https://www.blackspigot.com/) - Plugin and resource community
@@ -90,11 +102,15 @@
 
 **[More](/Minecraft)**
 
-## Live TV & Sports
+---
+
+## Live TV & Sports ⚽
 
 - [Scorescast](https://scorescast.live/sports/) - Live sports streaming
 
-## AI & Language Models
+---
+
+## AI & Language Models 🤖
 
 - [AI Detector Bypass](/LLM-JB/AntiAI-Bypass) - Techniques to bypass AI detection
 - [Trae Jailbreak](/LLM-JB/Trae-JB) - Advanced AI prompt engineering
@@ -103,7 +119,9 @@
 
 **[More](https://github.com/elder-plinius/L1B3RT45/tree/main)**
 
-## VPN Services
+---
+
+## VPNs 🌎
 
 ### Premium (Recommended)
 - [Mullvad](https://mullvad.net/) - $5/month, privacy-focused, no-logs policy
@@ -114,7 +132,9 @@
 - [OutlineKeys.com](https://outlinekeys.com/) - Free Shadowsocks, Outline, Trojan protocols
 - [BrightVPN](https://brightvpn.com/) - Free service with fast speeds (limited privacy)
 
-## Tools
+---
+
+## Tools 🛠️
 
 - [uBlock Origin](https://ublock.org) - Advanced ad blocker and content filter
 - [qBittorrent](https://www.qbittorrent.org/) - Open-source torrent client
@@ -124,7 +144,7 @@
 
 ---
 
-## Resources
+## Resources 🧰
 
 For comprehensive guides and additional resources, visit:
 - [Piracy Megathread](https://rentry.co/megathread) - Community-curated piracy resources
