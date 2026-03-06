@@ -59,7 +59,7 @@
 - [Terabox](https://terabox.com) - 1TB per account, permanent storage
 - [Kraken Files](https://krakenfiles.com/) - 1GB max, unlimited files, permanent storage
 - [Catbox](https://catbox.moe/) - 200MB max, unlimited files, permanent storage
-- [Litter](https://litter.minoa.cat) - Offline currently, back soon with 2GB upload!!!!!
+- [Litter](https://litter.minoa.cat) - 50gb, unlimited, perminant storage, uses telegram
 - [Send Space](https://sendspace.com/) - 300MB max, permanent storage
 - [Archive.org](https://archive.org) - Unlimited storage, permanent archival
 
