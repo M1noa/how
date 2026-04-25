@@ -1,96 +1,65 @@
+# How to Install Ryujinx for Tomodachi Life: Living the Dream
 
+Before starting, get an adblocker if you don't have one. [uBlock](https://ublockorigin.com/) is great.
 
+### Step 1: Downloads
+Gather these files before moving on:
+* **Ryujinx Emulator:** [Download here](https://git.ryujinx.app/Ryubing/Canary/releases). Get the newest version for your computer, `ryujinx-canary-X.X.XXX-win_x64.zip` for Windows or `ryujinx-canary-X.X.XXX-macos_universal.app.tar.gz` for Mac.
+* **Prod Keys:** [Download the newest version from here](https://prodkeys.net/ryujinx-prod-keys-update/).
+* **Firmware:** [Download the latest version from here](https://github.com/THZoria/NX_Firmware/releases/latest).
+* **Game Files:** Download the [Base Game (v0)](https://litter.minoa.cat/files/976b9r/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2000%5D%5Bv0%5D.nsp) and the [Update File (v1.0.1)](https://litter.minoa.cat/files/enzoqok8l/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2800%5D%5Bv65536%5D.nsp). (will update this page as new versions come out)
 
-# How to Install and Setup Ryujinx for Tomodachi Life: Living the Dream
-
-Before starting, it is highly recommended to install an adblocker if you do not already have one. [uBlock](https://ublockorigin.com/) is a great.
-
-## Step 1: Download the Required Files
-
-You will need the emulator, the system files, and the game files. Gather all of these before moving on.
-
-1. **Ryujinx Emulator:** Download the proper version for your operating system from the [Ryubing Canary Releases](https://git.ryujinx.app/Ryubing/Canary/releases).
-   * Windows users: Download the file ending in `win_x64.zip`.
-   * Mac users: Download the file ending in `macos_universal.app.tar.gz`.
-2. **Prod Keys:** Download the latest prod keys from [ProdKeys.net](https://prodkeys.net/ryujinx-prod-keys-update/).
-3. **Firmware:** Download the latest Switch firmware zip file from the [THZoria Firmware Releases](https://github.com/THZoria/NX_Firmware/releases/latest). Look under the "Assets" dropdown for the zip file.
-4. **Game ROMs:** Download both the base game and the update file.
-   * Base Game (v0): [Download Here](https://litter.minoa.cat/files/976b9r/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2000%5D%5Bv0%5D.nsp)
-   * Update File (v1.0.1): [Download Here](https://litter.minoa.cat/files/enzoqok8l/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2800%5D%5Bv65536%5D.nsp)
-
-## Step 2: Install Ryujinx
-
-**For Windows:**
-Extract the downloaded `.zip` file to a location of your choice (like your Desktop or a Games folder). Open the folder and double-click `Ryujinx.exe` to launch it.
-
-**For Mac:**
-Double click the `.tar.gz` file. Drag the extracted `Ryujinx.app` into your Applications folder. Before opening it, you need to clear Apple's quarantine flag. Open the Terminal app (Command+Space then type in "Terminal") and run the following command:
+### Step 2: Install Ryujinx
+* **Windows:** Extract the `.zip` file to a folder like your Desktop. Double-click `Ryujinx.exe` to launch.
+* **Mac:** Extract the `.tar.gz` file and drag `Ryujinx.app` into your Applications folder. Open Terminal (Cmd+Space, type "Terminal") and run this command to clear Apple's security block:
 `xattr -cr /Applications/Ryujinx.app`
-After running this, you can launch Ryujinx from your Applications folder via double clicking.
+Then double-click the app in your Applications folder to open it.
 
-## Step 3: Initial System Setup
+### Step 3: Keys & Firmware
+Ignore the "Keys not found" error when you first open the app.
+1. **Keys:** Extract your downloaded Prod Keys zip. In Ryujinx, go to Actions > Install Keys > Install Keys (Folder) and select the extracted folder.
+2. **Firmware:** Go to Actions > Install Firmware > Install Firmware (.XCI or .ZIP) and select the Firmware zip file. Confirm the install.
 
-When you first open Ryujinx, you will get a "Keys not found" error. This is completely normal. Click OK to dismiss it.
+*Mac Note: If you get a spinning pinwheel clicking these menus, just wait. If it disappears without opening a window, click the menu option again.*
 
-1. **Install Keys:** First, extract the Prod Keys zip file you downloaded. In Ryujinx, go to the top menu bar and click Actions > Install Keys > Install Keys (Folder). Navigate to your extracted keys folder and select it. 
-2. **Install Firmware:** Go to the top menu bar and click Actions > Install Firmware > Install Firmware (.XCI or .ZIP). Locate the Firmware zip file you downloaded earlier and select it. Confirm the installation when prompted.
+### Step 4: Add the Game
+Put your base game and update file in a dedicated folder (like Documents/Switch ROMs). Do not delete this folder later or you will lose your game.
+1. **Add folder:** Go to Options > Settings > General. Under Game Directories, click Add, select your game folder, and click Save. The game will appear in the main window.
+2. **Update:** Right-click the game > Manage Title Updates > Add. Select the update file (`[v65536].nsp`), choose version 1.0.1 from the list, and click Save.
 
-**Mac Troubleshooting Note:** When clicking these menu options on a Mac, you might occasionally get a spinning pinwheel. If this happens, do not click outside of the Ryujinx window. Just wait patiently. Eventually, the file browser will open, or the pinwheel will disappear. If the pinwheel goes away without opening the file browser, simply click the menu option one more time and it should open right up.
-
-## Step 4: Adding and Updating the Game
-
-Create a dedicated folder on your computer for your Switch ROMs (for example, inside your Documents folder). Move both the base game and the update file into this folder. 
-
-> Note: Do not delete this folder or move the files after setting this up, as doing so will remove the games from your emulator. (your saves will stay)
-
-1. **Add the Game Directory:** In Ryujinx, go to Options > Settings. Under the General tab, look for Game Directories and click Add. Select the folder where you put your game files and click Save. The game should now appear in your main Ryujinx window.
-2. **Apply the Update:** 
-   * Right-click Tomodachi Life: Living the Dream in your game list.
-   * Select Manage Title Updates.
-   * Click the Add button.
-   * Navigate to your game folder and select the update file (the one ending in `[v65536].nsp`).
-   * Select the new Version 1.0.1 from the list and click Save.
-
-## Step 5: Configuring Inputs
-
+### Step 5: Controls
 Go to Options > Settings > Input. Under Player 1, click Configure.
+Select your controller from the dropdown (Pro Controller type is recommended). Map your buttons and save. You can use a keyboard, but a real controller is much better.
 
-* **Input Device:** Select your controller from the dropdown menu.
-* **Controller Type:** Pro Controller is recommended for most games.
-* **Keyboard vs Controller:** You can select "All keyboards" if you want to play with your keyboard, but it is highly recommended to use a dedicated controller (like an Xbox, PlayStation, or Switch controllers) for a much better experience. Map your buttons by clicking the boxes and pressing the corresponding button on your device. Click Save when done.
+### Step 6: Optimal Settings
+Go to Options > Settings. Use these values for the best performance:
 
-## Step 6: Optimal Settings Explained
+**System**
+* VSync / Custom Refresh Rate: 100% for normal 30fps. 200% for 60fps. (Laptop users should try ~130%).
+* DRAM Size: 4GiB (6GiB is fine if you have RAM to spare).
 
-Go to Options > Settings to configure the emulator for the best performance. Here is a breakdown of what the settings do and how you should configure them.
+**CPU**
+* Memory Manager Mode: Host Unchecked (Fastest, Unsafe).
+* PPTC: On (makes future loading much faster).
+* Use Hypervisor (Mac only): On (huge performance boost).
 
-### System Tab
-* **VSync / Custom Refresh Rate:** For 60fps set to 200%, for 30fps (normal) set to 100% (if playing on a laptop, id do ~130%)
-* **DRAM Size:** This allocates memory to the emulator. **Set this to 4GiB.** (if you dont mind using more ram 6GiB wouldn't hurt)
+**Graphics**
+* Graphics Backend: Vulkan.
+* Enable Shader Cache: On.
+* Enable Texture Recompression: On for Mac (prevents crashes). Off for Windows (unless you have an older GPU).
+* Resolution Scale: Native (720p/1080p).
+* Anti-Aliasing: None.
+* Scaling Filter: Bilinear.
+* Anisotropic Filtering: 2x for Mac, 16x for Windows.
+* Graphics Backend Multithreading: On.
 
-### CPU Tab
-* **Memory Manager Mode:** **Set this to Host Unchecked (Fastest, Unsafe).** This is the most optimized path for performance.
-* **PPTC (Profiled Persistent Translation Cache):** **Turn this on.** It saves translated code to your drive so the game loads and runs much faster on all future launches.
-* **Use Hypervisor (Mac Only):** **Turn this on.** This allows Apple Silicon chips to run the game's ARM code natively, providing a massive performance boost and keeping your Mac cooler.
+**Network**
+* Multiplayer: Mode = RyuLDN, check Guest Internet Access/LAN Mode.
+* Single-player: Mode = Disabled (saves performance).
 
-### Graphics Tab
-* **Graphics Backend:** **Set this to Vulkan.** (unless you have an older GPU)
-* **Enable Shader Cache:** **Turn this on.** It saves shaders to your drive as you play so the game doesn't stutter when loading new visual effects.
-* **Enable Texture Recompression:** 
-  * *Mac Users:* **Turn this on.** Macs use unified memory, and this setting saves a massive amount of RAM, which prevents out-of-memory crashes.
-  * *Windows Users:* **Turn this off** unless your graphics card is older and has less than 4GB of VRAM.
-* **Resolution Scale:** **Set to Native (720p/1080p)** for the most stable performance.
-* **Anti-Aliasing & Scaling Filter:** **Set Anti-Aliasing to None** and **Scaling Filter to Bilinear** for the best framerates.
-* **Anisotropic Filtering:** **Set to 2x** for Mac, or **16x** for Windows (if your PC is powerful enough).
-* **Graphics Backend Multithreading:** **Set to On** to force the emulator to utilize multiple CPU cores.
+*Mac Heat Warning: MacBook Airs will get warm since they don't have fans. Play on a hard surface like a wood or metal desk, not a bed or blanket.*
 
-### Network Tab
-* If you want to use local multiplayer features over the internet with other Ryujinx users, **set Mode to RyuLDN** and **turn on Guest Internet Access/LAN Mode**. 
-* If you are just playing single-player, **set Mode to Disabled**. Turning the network off stops the emulator from constantly searching for other players in the background, which saves performance.
+### Step 7: Play
+Double-click the game to start. It will stutter at first while it compiles shaders, but it will smooth out completely once you explore a bit. 
 
-### A Quick Note for Mac Users
-If you are playing on an M-series MacBook Air (which has no internal fan), the computer will get quite toasty during gameplay. It runs perfectly fine with 8GB of RAM, but it is highly recommended to play with the laptop resting on a surface that transfers heat well, like a metal stand or a wooden desk, rather than a bed or blanket.
-
-## Step 7: Save Files
-Your game saves are not stored in the folder with your ROMs. They are stored safely inside the Ryujinx system files. If you ever need to back up your save or transfer it to another computer, simply right-click the game in Ryujinx and select Open User Save Directory.
-
-You are now ready to play! Double-click the game in your list to start. When first playing you will notice it stuttering a lot as it compiles shaders (you will only have to do this once per scene/place, then it will be a smooth experience).
+*(Note: Your saves are stored internally. To back them up, right-click the game and select Open User Save Directory).*
