@@ -7,7 +7,7 @@ Gather these files before moving on:
 * **Ryujinx Emulator:** [Download here](https://git.ryujinx.app/Ryubing/Canary/releases). Get the newest version for your computer, `ryujinx-canary-X.X.XXX-win_x64.zip` for Windows or `ryujinx-canary-X.X.XXX-macos_universal.app.tar.gz` for Mac.
 * **Prod Keys:** [Download the newest version from here](https://prodkeys.net/ryujinx-prod-keys-update/).
 * **Firmware:** [Download the latest version from here](https://github.com/THZoria/NX_Firmware/releases/latest).
-* **Game Files:** Download the [Base Game (v0)](https://litter.minoa.cat/files/976b9r/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2000%5D%5Bv0%5D.nsp) and the [Update File (v1.0.1)](https://litter.minoa.cat/files/enzoqok8l/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2800%5D%5Bv65536%5D.nsp). (will update this page as new versions come out)
+* **Game Files:** Download the [Base Game (v0)](https://litter.minoa.cat/files/976b9r/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2000%5D%5Bv0%5D.nsp?ref=tutorial) and the [Update File (v1.0.1)](https://litter.minoa.cat/files/enzoqok8l/Tomodachi%20Life%20Living%20the%20Dream%20%5B010051F0207B2800%5D%5Bv65536%5D.nsp?ref=tutorial). (will update this page as new versions come out)
 
 ### Step 2: Install Ryujinx
 * **Windows:** Extract the `.zip` file to a folder like your Desktop. Double-click `Ryujinx.exe` to launch.
