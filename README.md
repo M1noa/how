@@ -11,10 +11,11 @@
 - [IGetintoPC](https://igetintopc.com) - Windows & Mac software (use with caution)
 
 ### macOS Applications
-- [AppsTorrent](https://appstorrent.ru/) - Mac software with clean interface and fast downloads
+
+- [cMacked](https://cmacked.com/) - Mac software collection with clean interface and fast direct downloads and often newer versions
+- [AppsTorrent](https://appstorrent.ru/) - Mac software with clean russian interface and fast downloads
 - [MacTorrents](https://www.torrentmac.net/) - Mac software via torrents and direct downloads
 - [HaxMac](https://haxmac.cc/) - Mac application repository
-- [cMacked](https://cmacked.com/) - Mac software collection
 
 ---
 
