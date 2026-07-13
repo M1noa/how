@@ -265,6 +265,7 @@ function securityHeaders() {
 export async function onRequest({ request }) {
   const url = new URL(request.url);
   const path = url.pathname;
+  console.log('Worker fetch:', path);
   const headers = { ...securityHeaders() };
 
   try {
