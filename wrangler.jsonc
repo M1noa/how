@@ -1,6 +1,5 @@
 {
-  "name": "how-to-minoa-cat",
-  "pages_build_output_dir": ".vercel/output/static",
+  "name": "how",
   "compatibility_date": "2025-01-01",
   "compatibility_flags": ["nodejs_compat"],
   "kv_namespaces": [
@@ -9,5 +8,6 @@
       "id": "MARKDOWN_CACHE",
       "preview_id": "MARKDOWN_CACHE"
     }
-  ]
+  ],
+  "pages_build_output_dir": "."
 }
