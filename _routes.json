@@ -1,12 +1,5 @@
 {
   "version": 1,
   "include": ["/*"],
-  "exclude": [
-    "/css/*",
-    "/js/*",
-    "/fonts/*",
-    "/assets/*",
-    "/favicon.ico",
-    "/robots.txt"
-  ]
+  "exclude": []
 }

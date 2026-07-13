@@ -3,41 +3,24 @@ import { marked } from 'marked';
 const CONFIG = {
   github: { repo: 'M1noa/how', branch: 'main', userAgent: 'HowDoc/1.0' },
   site: { name: 'how.to.minoa.cat', url: 'https://how.to.minoa.cat' },
-  cache: { githubTtl: 3600, htmlTtl: 604800 },
   favicon: 'https://cdn.discordapp.com/avatars/919656376807092304/1277c43f2298a39265c295e3d8ca883c.webp',
 };
 
 marked.setOptions({ breaks: true, gfm: true });
 
-async function fetchMarkdown(path, env) {
-  const cacheKey = `md:${path}`;
-  if (env?.MARKDOWN_CACHE) {
-    const cached = await env.MARKDOWN_CACHE.get(cacheKey);
-    if (cached) return cached;
-  }
+async function fetchMarkdown(path) {
   const url = `https://raw.githubusercontent.com/${CONFIG.github.repo}/${CONFIG.github.branch}/${path}`;
   const res = await fetch(url, { headers: { 'User-Agent': CONFIG.github.userAgent } });
   if (!res.ok) throw new Error(res.status === 404 ? 'Not Found' : `Fetch failed: ${res.status}`);
-  const text = await res.text();
-  if (env?.MARKDOWN_CACHE)
-    await env.MARKDOWN_CACHE.put(cacheKey, text, { expirationTtl: CONFIG.cache.githubTtl });
-  return text;
+  return res.text();
 }
 
-async function fetchFileList(env) {
-  const cacheKey = 'files:list';
-  if (env?.MARKDOWN_CACHE) {
-    const cached = await env.MARKDOWN_CACHE.get(cacheKey);
-    if (cached) return JSON.parse(cached);
-  }
+async function fetchFileList() {
   const url = `https://api.github.com/repos/${CONFIG.github.repo}/git/trees/${CONFIG.github.branch}?recursive=1`;
   const res = await fetch(url, { headers: { 'User-Agent': CONFIG.github.userAgent } });
   if (!res.ok) throw new Error('GitHub API failed');
   const data = await res.json();
-  const files = data.tree.filter(f => f.type === 'blob' && f.path.endsWith('.md') && !f.path.startsWith('.'));
-  if (env?.MARKDOWN_CACHE)
-    await env.MARKDOWN_CACHE.put(cacheKey, JSON.stringify(files), { expirationTtl: CONFIG.cache.githubTtl });
-  return files;
+  return data.tree.filter(f => f.type === 'blob' && f.path.endsWith('.md') && !f.path.startsWith('.'));
 }
 
 function extractDescription(md) {
@@ -46,7 +29,7 @@ function extractDescription(md) {
 }
 
 function fileNameToTitle(filePath) {
-  const name = filePath.replace('.md', '').replace('README', 'Home');
+  const name = filePath.replace('.md', '').split('/').pop().replace('README', 'Home');
   return name.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
 
@@ -60,11 +43,37 @@ const OG_DESC = 'Curated collection of digital resources, guides, and tools. Sof
 
 function renderPage(title, description, content, filePath, files) {
   const isHome = filePath === 'README.md';
-  const navItems = (files || []).filter(f => f.path !== 'README.md').map(f => ({
+  const currentSlug = '/' + filePath.replace('.md', '');
+  const allFiles = (files || []).filter(f => f.path !== 'README.md');
+
+  const rootItems = allFiles.filter(f => !f.path.includes('/')).map(f => ({
     path: '/' + f.path.replace('.md', ''),
     title: fileNameToTitle(f.path),
-    active: ('/' + f.path.replace('.md', '')) === `/${filePath.replace('.md', '')}`
+    active: ('/' + f.path.replace('.md', '')) === currentSlug
   }));
+
+  const dirGroups = {};
+  allFiles.filter(f => f.path.includes('/')).forEach(f => {
+    const dir = f.path.split('/')[0];
+    if (!dirGroups[dir]) dirGroups[dir] = [];
+    dirGroups[dir].push({
+      path: '/' + f.path.replace('.md', ''),
+      title: fileNameToTitle(f.path.split('/').slice(1).join('/')),
+      active: ('/' + f.path.replace('.md', '')) === currentSlug
+    });
+  });
+
+  function sidebarNav() {
+    let html = '<a href="/" class="sidebar-link' + (isHome ? ' active' : '') + '">&#127968; Home</a>';
+    rootItems.forEach(n => { html += '<a href="' + n.path + '" class="sidebar-link' + (n.active ? ' active' : '') + '">' + n.title + '</a>'; });
+    Object.keys(dirGroups).sort().forEach(dir => {
+      html += '<div class="sidebar-group">' + fileNameToTitle(dir) + '</div>';
+      dirGroups[dir].forEach(n => {
+        html += '<a href="' + n.path + '" class="sidebar-link sidebar-indent' + (n.active ? ' active' : '') + '">' + n.title + '</a>';
+      });
+    });
+    return html;
+  }
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -109,7 +118,7 @@ ${isHome ? '' : `<script type="application/ld+json">
   <div class="header-inner">
     <a href="/" class="site-logo">how.to.minoa.cat</a>
     <nav class="nav-desktop">
-      ${navItems.slice(0, 5).map(n => `<a href="${n.path}" class="nav-link${n.active ? ' active' : ''}">${n.title}</a>`).join('')}
+      ${rootItems.slice(0, 5).map(n => `<a href="${n.path}" class="nav-link${n.active ? ' active' : ''}">${n.title}</a>`).join('')}
     </nav>
     <div class="header-actions">
       <a href="https://github.com/M1noa/how" target="_blank" class="header-action" aria-label="GitHub">&#9733;</a>
@@ -124,8 +133,7 @@ ${isHome ? '' : `<script type="application/ld+json">
     <button class="sidebar-close" id="sidebarClose" aria-label="Close navigation">&times;</button>
   </div>
   <nav class="sidebar-nav">
-    <a href="/" class="sidebar-link${isHome ? ' active' : ''}">&#127968; Home</a>
-    ${navItems.map(n => `<a href="${n.path}" class="sidebar-link${n.active ? ' active' : ''}">${n.title}</a>`).join('')}
+    ${sidebarNav()}
   </nav>
   <div class="sidebar-footer">
     <a href="https://github.com/M1noa/how" target="_blank">GitHub</a>
@@ -254,8 +262,7 @@ function securityHeaders() {
   };
 }
 
-export async function onRequest(context) {
-  const { request, env, next } = context;
+export async function onRequest({ request }) {
   const url = new URL(request.url);
   const path = url.pathname;
   const headers = { ...securityHeaders() };
@@ -264,7 +271,7 @@ export async function onRequest(context) {
     let body, contentType, cacheControl;
 
     if (path === '/sitemap.xml') {
-      const files = await fetchFileList(env);
+      const files = await fetchFileList();
       body = generateSitemap(files);
       contentType = 'application/xml';
       cacheControl = 'public, max-age=86400, s-maxage=604800';
@@ -273,11 +280,20 @@ export async function onRequest(context) {
       contentType = 'text/plain';
       cacheControl = 'public, max-age=86400';
     } else {
-      const filePath = pathToFilePath(path);
-      const [md, files] = await Promise.all([
-        fetchMarkdown(filePath, env),
-        fetchFileList(env)
-      ]);
+      let filePath = pathToFilePath(path);
+      let files;
+
+      try { files = await fetchFileList(); } catch (_) { files = []; }
+
+      let md = await fetchMarkdown(filePath).catch(async () => {
+        const match = files.find(f => f.path.toLowerCase() === filePath.toLowerCase());
+        if (match) {
+          filePath = match.path;
+          return fetchMarkdown(filePath);
+        }
+        throw new Error('Not Found');
+      });
+
       const html = marked.parse(md);
       const title = fileNameToTitle(filePath);
       const desc = extractDescription(md);

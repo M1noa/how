@@ -134,6 +134,13 @@ body {
 .sidebar-link:hover { background: var(--sidebar-hover); color: var(--text-bright); }
 .sidebar-link.active { background: var(--sidebar-active); color: var(--accent); font-weight: 500; }
 
+.sidebar-group {
+  padding: 0.5rem 0.75rem 0.25rem;
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.08em; color: var(--accent-dim);
+}
+.sidebar-indent { padding-left: 1.5rem; }
+
 .sidebar-footer {
   padding: 1rem 1.25rem; border-top: 1px solid var(--border);
   display: flex; gap: 1rem;
