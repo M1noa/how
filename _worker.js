@@ -262,67 +262,76 @@ function securityHeaders() {
   };
 }
 
-export async function onRequest({ request }) {
-  const url = new URL(request.url);
-  const path = url.pathname;
-  console.log('Worker fetch:', path);
-  const headers = { ...securityHeaders() };
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const path = url.pathname;
+    const headers = { ...securityHeaders() };
 
-  try {
-    let body, contentType, cacheControl;
-
-    if (path === '/sitemap.xml') {
-      const files = await fetchFileList();
-      body = generateSitemap(files);
-      contentType = 'application/xml';
-      cacheControl = 'public, max-age=86400, s-maxage=604800';
-    } else if (path === '/robots.txt') {
-      body = `User-agent: *\nAllow: /\nSitemap: ${CONFIG.site.url}/sitemap.xml\n`;
-      contentType = 'text/plain';
-      cacheControl = 'public, max-age=86400';
-    } else {
-      let filePath = pathToFilePath(path);
-      let files;
-
-      try { files = await fetchFileList(); } catch (_) { files = []; }
-
-      let md = await fetchMarkdown(filePath).catch(async () => {
-        const match = files.find(f => f.path.toLowerCase() === filePath.toLowerCase());
-        if (match) {
-          filePath = match.path;
-          return fetchMarkdown(filePath);
+    try {
+      // Try to serve from static assets first (excluding sitemap.xml and robots.txt which we generate dynamically)
+      if (env.ASSETS && path !== '/sitemap.xml' && path !== '/robots.txt') {
+        const assetResponse = await env.ASSETS.fetch(request);
+        if (assetResponse.ok) {
+          return assetResponse;
         }
-        throw new Error('Not Found');
+      }
+
+      let body, contentType, cacheControl;
+
+      if (path === '/sitemap.xml') {
+        const files = await fetchFileList();
+        body = generateSitemap(files);
+        contentType = 'application/xml';
+        cacheControl = 'public, max-age=86400, s-maxage=604800';
+      } else if (path === '/robots.txt') {
+        body = `User-agent: *\nAllow: /\nSitemap: ${CONFIG.site.url}/sitemap.xml\n`;
+        contentType = 'text/plain';
+        cacheControl = 'public, max-age=86400';
+      } else {
+        let filePath = pathToFilePath(path);
+        let files;
+
+        try { files = await fetchFileList(); } catch (_) { files = []; }
+
+        let md = await fetchMarkdown(filePath).catch(async () => {
+          const match = files.find(f => f.path.toLowerCase() === filePath.toLowerCase());
+          if (match) {
+            filePath = match.path;
+            return fetchMarkdown(filePath);
+          }
+          throw new Error('Not Found');
+        });
+
+        const html = marked.parse(md);
+        const title = fileNameToTitle(filePath);
+        const desc = extractDescription(md);
+        body = renderPage(title, desc, html, filePath, files);
+        contentType = 'text/html; charset=utf-8';
+        cacheControl = 'public, max-age=3600, s-maxage=86400';
+      }
+
+      return new Response(body, {
+        status: 200,
+        headers: {
+          ...headers,
+          'Content-Type': contentType,
+          'Cache-Control': cacheControl,
+        }
       });
 
-      const html = marked.parse(md);
-      const title = fileNameToTitle(filePath);
-      const desc = extractDescription(md);
-      body = renderPage(title, desc, html, filePath, files);
-      contentType = 'text/html; charset=utf-8';
-      cacheControl = 'public, max-age=3600, s-maxage=86400';
-    }
-
-    return new Response(body, {
-      status: 200,
-      headers: {
-        ...headers,
-        'Content-Type': contentType,
-        'Cache-Control': cacheControl,
+    } catch (err) {
+      if (err.message === 'Not Found') {
+        return new Response(render404(), {
+          status: 404,
+          headers: { ...headers, 'Content-Type': 'text/html; charset=utf-8' }
+        });
       }
-    });
-
-  } catch (err) {
-    if (err.message === 'Not Found') {
-      return new Response(render404(), {
-        status: 404,
+      console.error('Worker error:', err);
+      return new Response(renderError('Something went wrong fetching that page.'), {
+        status: 500,
         headers: { ...headers, 'Content-Type': 'text/html; charset=utf-8' }
       });
     }
-    console.error('Worker error:', err);
-    return new Response(renderError('Something went wrong fetching that page.'), {
-      status: 500,
-      headers: { ...headers, 'Content-Type': 'text/html; charset=utf-8' }
-    });
   }
-}
+};

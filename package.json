@@ -1,8 +1,8 @@
 {
   "name": "how-to-minoa-cat",
   "version": "3.0.0",
-  "description": "Documentation site for how.to.minoa.cat — Cloudflare Pages",
-  "main": "functions/[[path]].js",
+  "description": "Documentation site for how.to.minoa.cat",
+  "main": "_worker.js",
   "private": true,
   "dependencies": {
     "marked": "^15.0.0"
