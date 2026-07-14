@@ -64,7 +64,7 @@ function renderPage(title, description, content, filePath, files) {
   });
 
   function sidebarNav() {
-    let html = '<a href="/" class="sidebar-link' + (isHome ? ' active' : '') + '">&#127968; Home</a>';
+    let html = '<a href="/" class="sidebar-link' + (isHome ? ' active' : '') + '">Home</a>';
     rootItems.forEach(n => { html += '<a href="' + n.path + '" class="sidebar-link' + (n.active ? ' active' : '') + '">' + n.title + '</a>'; });
     Object.keys(dirGroups).sort().forEach(dir => {
       html += '<div class="sidebar-group">' + fileNameToTitle(dir) + '</div>';
@@ -117,11 +117,7 @@ ${isHome ? '' : `<script type="application/ld+json">
 <header class="header">
   <div class="header-inner">
     <a href="/" class="site-logo">how.to.minoa.cat</a>
-    <nav class="nav-desktop">
-      ${rootItems.slice(0, 5).map(n => `<a href="${n.path}" class="nav-link${n.active ? ' active' : ''}">${n.title}</a>`).join('')}
-    </nav>
     <div class="header-actions">
-      <a href="https://github.com/M1noa/how" target="_blank" class="header-action" aria-label="GitHub">&#9733;</a>
       <button class="header-action sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation">&#9776;</button>
     </div>
   </div>
@@ -147,7 +143,7 @@ ${isHome ? '' : `<script type="application/ld+json">
   <article class="markdown${isHome ? ' home-content' : ''}">
     ${content}
   </article>
-  ${isHome ? '' : `<div class="edit-link"><a href="https://github.com/${CONFIG.github.repo}/blob/${CONFIG.github.branch}/${filePath}" target="_blank">&#9998; Edit this page on GitHub</a></div>`}
+  ${isHome ? '' : `<div class="edit-link"><a href="https://github.com/${CONFIG.github.repo}/blob/${CONFIG.github.branch}/${filePath}" target="_blank">Edit this page on GitHub</a></div>`}
 </main>
 
 <footer class="footer">
@@ -156,7 +152,6 @@ ${isHome ? '' : `<script type="application/ld+json">
     <nav class="footer-nav">
       <a href="/">Home</a>
       <a href="https://github.com/M1noa/how" target="_blank">GitHub</a>
-      <a href="/sitemap.xml">Sitemap</a>
     </nav>
   </div>
 </footer>
