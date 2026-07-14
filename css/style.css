@@ -7,14 +7,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Rubik 80s Fade';
-  src: url('/fonts/rubik-80s-fade-latin-400-normal.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* toast notification */
 .toast {
   position: fixed;
@@ -342,17 +334,28 @@ body {
   color: var(--text);
 }
 
-/* CSS Noise Overlay */
-.noise-overlay {
+.noise-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -50%; left: -50%; right: -50%; bottom: -50%;
+  width: 200%; height: 200vh;
+  background: transparent url('noise.png') repeat 0 0;
+  opacity: 0.4;
   pointer-events: none;
-  z-index: 9999;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 1;
+  animation: noise-animation 0.2s infinite;
+}
+@keyframes noise-animation {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  20% { transform: translate(-10%,5%) }
+  30% { transform: translate(5%,-10%) }
+  40% { transform: translate(-5%,15%) }
+  50% { transform: translate(-10%,5%) }
+  60% { transform: translate(15%,0) }
+  70% { transform: translate(0,10%) }
+  80% { transform: translate(-15%,0) }
+  90% { transform: translate(10%,5%) }
+  100% { transform: translate(5%,0) }
 }
 
 /* OKLCH Gradient Background */
@@ -384,7 +387,7 @@ body.gradient-mode .file-item.success {
 }
 
 h1 {
-  font-family: "Rubik 80s Fade", cursive;
+  font-family: "Space Grotesk", sans-serif;
   font-size: 3rem;
   margin-bottom: 0.5rem;
   text-align: center;
@@ -2232,7 +2235,7 @@ html { scroll-behavior: smooth; }
   position: relative; scroll-margin-top: 5rem;
   font-family: "Space Grotesk", sans-serif;
 }
-.markdown h1 { font-family: "Rubik 80s Fade", cursive; font-size: 2.5rem; margin: 0 0 1.5rem; font-weight: normal; }
+.markdown h1 { font-family: "Space Grotesk", sans-serif; font-size: 2.5rem; margin: 0 0 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
 .markdown h2 { font-size: 1.75rem; margin: 3rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
 .markdown h3 { font-size: 1.35rem; margin: 2.5rem 0 0.75rem; }
 .markdown h4 { font-size: 1.1rem; margin: 2rem 0 0.5rem; }
@@ -2345,8 +2348,8 @@ html { scroll-behavior: smooth; }
   padding: 4rem 2rem; text-align: center;
 }
 .error-code {
-  font-family: "Rubik 80s Fade", cursive;
-  font-size: 6rem; font-weight: normal; color: var(--text-bright);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 6rem; font-weight: 700; color: var(--text-bright);
   line-height: 1; margin-bottom: 1rem;
 }
 .error-cat {

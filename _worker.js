@@ -112,7 +112,7 @@ ${isHome ? '' : `<script type="application/ld+json">
 <script defer src="https://analytics.minoa.cat/script.js" data-website-id="fcaf3205-63ec-4918-bee3-aa42283926ef"></script>
 </head>
 <body>
-<div class="noise-overlay"></div>
+<div class="noise-bg"></div>
 
 <header class="header">
   <div class="header-inner">
@@ -178,7 +178,7 @@ function render404() {
 <script defer src="https://analytics.minoa.cat/script.js" data-website-id="fcaf3205-63ec-4918-bee3-aa42283926ef"></script>
 </head>
 <body>
-<div class="noise-overlay"></div>
+<div class="noise-bg"></div>
 <header class="header">
   <div class="header-inner">
     <a href="/" class="site-logo">how.to.minoa.cat</a>
