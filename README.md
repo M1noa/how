@@ -1,7 +1,3 @@
-# Digital Resources Guide
-
----
-
 ## Software </>
 
 ### Windows Applications
@@ -19,7 +15,7 @@
 
 ---
 
-## Gaming 🕹️
+## Gaming
 
 - [Game Drive](https://gamedrive.org/) - Game repository with various titles
 - [FitGirl Repacks](https://fitgirl-repacks.site/) - Compressed game repacks, user-friendly interface
@@ -30,7 +26,7 @@
 
 ---
 
-## Movies, TV Shows & Anime 🍿
+## Movies, TV Shows & Anime
 
 ### Streaming Platforms
 - [Popcorn Time](https://jfper.link/build/) ([GitHub](https://github.com/popcorn-official/popcorn-desktop)) - Cross-platform streaming client
@@ -54,7 +50,7 @@
 
 ---
 
-## File Hosting 📁
+## File Hosting
 
 ### Long-term Storage
 - [Terabox](https://terabox.com) - 1TB per account, permanent storage
@@ -76,7 +72,7 @@
 
 ---
 
-## Media Hosting 📺
+## Media Hosting
 
 ### Video Hosting
 - [Mycloud/Vidplay](https://vidplay.online/) - 20GB max, API support
@@ -88,7 +84,7 @@
 
 ---
 
-## Minecraft Resources ⛏
+## Minecraft Resources
 
 - **[Capes & Banners](/MC-Banners)** - Custom cape and banner designs
 - [Blackspigot](https://www.blackspigot.com/) - Plugin and resource community
@@ -105,13 +101,13 @@
 
 ---
 
-## Live TV & Sports ⚽
+## Live TV & Sports
 
 - [Scorescast](https://scorescast.live/sports/) - Live sports streaming
 
 ---
 
-## AI & Language Models 🤖
+## AI & Language Models
 
 - [AI Detector Bypass](/LLM-JB/AntiAI-Bypass) - Techniques to bypass AI detection
 - [Trae Jailbreak](/LLM-JB/Trae-JB) - Advanced AI prompt engineering
@@ -122,7 +118,7 @@
 
 ---
 
-## VPNs 🌎
+## VPNs
 
 ### Premium (Recommended)
 - [Mullvad](https://mullvad.net/) - $5/month, privacy-focused, no-logs policy
@@ -135,7 +131,7 @@
 
 ---
 
-## Tools 🛠️
+## Tools
 
 - [uBlock Origin](https://ublock.org) - Advanced ad blocker and content filter
 - [qBittorrent](https://www.qbittorrent.org/) - Open-source torrent client
@@ -145,13 +141,12 @@
 
 ---
 
-## Resources 🧰
+## Resources
 
 For comprehensive guides and additional resources, visit:
-- [Piracy Megathread](https://rentry.co/megathread) - Community-curated piracy resources
-- [FMHY Wiki](https://fmhy.net/beginners-guide) - Free media and software guide
+- [r/Piracy Megathread](https://rentry.co/megathread) - Community-curated piracy resources
+- [**FMHY Wiki**](https://fmhy.net/beginners-guide) - Free media and software guide
 - [EverythingMoe](https://everythingmoe.com/) - Anime and manga resources
-- [r/Piracy Wiki](https://www.reddit.com/r/Piracy/wiki/index) - Reddit community resources
 
 **Disclaimer**: This guide is for educational purposes only. Users are responsible for complying with local laws and regulations. Always respect intellectual property rights and consider supporting content creators when possible.
 
